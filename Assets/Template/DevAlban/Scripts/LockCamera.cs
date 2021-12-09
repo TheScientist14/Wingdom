@@ -13,7 +13,7 @@ public class LockCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        offset = transform.position = player.position + offset;
+        offset = transform.position - player.position;
     }
 
     private void LateUpdate()
