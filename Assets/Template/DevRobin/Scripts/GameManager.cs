@@ -16,5 +16,8 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void 
+    public void PauseTrigger()
+    {
+
+    }
 }
