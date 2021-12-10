@@ -35,7 +35,7 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, camera.transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+        //transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, camera.transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
         rb.velocity = movement * speed /** Time.fixedDeltaTime*/ + new Vector3(0, rb.velocity.y, 0);
         if (jump)
         {
