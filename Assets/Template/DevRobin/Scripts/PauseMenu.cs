@@ -8,7 +8,7 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        PMenu.SetActive(false);
     }
 
     // Update is called once per frame
@@ -18,14 +18,23 @@ public class PauseMenu : MonoBehaviour
     }
 
 
-    public void ResumeButton()
+    public void OnShowHide()
     {
-        PMenu.SetActive(false);
-        Time.timeScale = 1;
+        if (!PMenu.activeSelf)
+        {
+            PMenu.SetActive(true);
+            GameManager.instance.Pause();
+        }
+        else
+        {
+            PMenu.SetActive(false);
+            GameManager.instance.Resume();
+        }
     }
 
     public void Quit()
     {
+        print("QUIT");
         Application.Quit();
     }
 }
