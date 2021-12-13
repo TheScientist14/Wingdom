@@ -388,6 +388,17 @@
                 },
                 {
                     "name": "",
+                    "id": "73a9343f-9458-4a16-bbd6-6cea79d600e1",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "ShowHide",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "cb317636-1b98-4d07-a9e3-b964fde15189",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
