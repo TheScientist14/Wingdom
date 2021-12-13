@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4877256664085349314}
   - component: {fileID: 6958268483212944853}
-  - component: {fileID: 7168374380901466922}
+  - component: {fileID: 1523923982758688332}
   - component: {fileID: 3611424079037886765}
+  - component: {fileID: 7168374380901466922}
   m_Layer: 0
   m_Name: BrokenTree
   m_TagString: Untagged
@@ -67,6 +68,36 @@ MonoBehaviour:
   m_DefaultActionMap: Interaction
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1523923982758688332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451690053547280975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38526c9f9c3dd10458ce5a55a0b0e90b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 3676669036189888424}
+  controlHint: {fileID: 4432885585260081607}
+  hasBeenInteracted:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!135 &3611424079037886765
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451690053547280975}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7168374380901466922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,21 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leaves: {fileID: 4375790477804245397}
   healedMaterial: {fileID: 2100000, guid: e50af17ea1ef30749802a5dcc1acf1d1, type: 2}
-  canvas: {fileID: 3676669036189888424}
-  controlHint: {fileID: 4432885585260081607}
---- !u!135 &3611424079037886765
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 451690053547280975}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 4
-  m_Center: {x: 0, y: 0, z: 0}
+  interactionListener: {fileID: 1523923982758688332}
 --- !u!1 &771295398971407191
 GameObject:
   m_ObjectHideFlags: 0
