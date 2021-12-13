@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5630e5dd0e876f64d8f81a0299d74fd7, type: 3}
+  m_Name: 0_HealingQuest
+  m_EditorClassIdentifier: 
+  bubbleSpeeches:
+  - {fileID: 11400000, guid: 14aa0c879c6d7604facb3edb7281c706, type: 2}
+  - {fileID: 11400000, guid: 409878e7bb80d4942b06ac573118e81e, type: 2}
+  - {fileID: 11400000, guid: 0955b6f18b3347c47bc0a377193408ac, type: 2}
+  player: {fileID: 11400000, guid: a36021c2c089c8c40ac600a0ee589429, type: 2}
