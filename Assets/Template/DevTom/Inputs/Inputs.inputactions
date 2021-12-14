@@ -6,19 +6,10 @@
             "id": "9fb8284a-de2a-4e33-9ab4-ecb1e892b524",
             "actions": [
                 {
-                    "name": "Right",
+                    "name": "Movement",
                     "type": "Value",
-                    "id": "826f3389-9ed8-45e2-a9d9-dd18124df67b",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Forward",
-                    "type": "Value",
-                    "id": "edd46111-3cdd-4758-b14c-4595d0bf4ecd",
-                    "expectedControlType": "Axis",
+                    "id": "81d47384-2512-4994-aae9-b4638a92d26c",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -31,159 +22,9 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Camera",
-                    "type": "PassThrough",
-                    "id": "e91021e5-617a-43be-bcf0-9cc16f5a6f6b",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "CameraClic",
-                    "type": "Value",
-                    "id": "315454f5-314e-4d85-beeb-c96141045456",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
                 }
             ],
             "bindings": [
-                {
-                    "name": "1D Axis",
-                    "id": "128b6375-ccb5-4eb2-b354-16c27a225722",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Right",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "positive",
-                    "id": "285d5957-e767-4191-b42c-246be7819e03",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Right",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "a32735db-d52d-4e78-b4de-1096f7620a3c",
-                    "path": "<Keyboard>/rightArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Right",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "negative",
-                    "id": "ce7b69e2-32fc-406c-9f73-ff5d10d11424",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Right",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "negative",
-                    "id": "f8a55e90-171f-453b-9453-ff1f486fb1cc",
-                    "path": "<Keyboard>/leftArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Right",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "a352506a-7f4e-4d54-9d99-488212e9ed89",
-                    "path": "<Gamepad>/leftStick/x",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "Right",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "1D Axis",
-                    "id": "6b2f5232-7250-4c51-a693-7adf62d0eb59",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Forward",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "positive",
-                    "id": "c051a444-cfc1-4cf6-9227-ab7021490fce",
-                    "path": "<Keyboard>/z",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Forward",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "0fcd3055-6cb3-43c7-9971-77f240fffb35",
-                    "path": "<Keyboard>/upArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Forward",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "negative",
-                    "id": "8a2c178f-6f0a-4b31-ae9e-c9ff785dc0b5",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Forward",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "negative",
-                    "id": "6fcb74e4-902e-46bf-9d74-d9a418b680ea",
-                    "path": "<Keyboard>/downArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Forward",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "b4c06ceb-f5ab-4def-8d1a-ebdd54cc4f84",
-                    "path": "<Gamepad>/leftStick/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "Forward",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "2de251e7-bd88-4f2f-a6f8-ac71839cf7ee",
@@ -207,74 +48,112 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "344e2905-0ece-4b2b-9aac-d4ec4f8c63a7",
-                    "path": "<Mouse>/delta",
+                    "name": "2D Vector",
+                    "id": "f323d1c1-c034-4055-90c8-3f3e9c86a8a0",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Camera",
-                    "isComposite": false,
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "da99b14e-d930-49a9-83a6-b37e2b3d7fa5",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "Camera",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "0bbffd51-ae4e-4944-9e79-27ca6495643a",
-                    "path": "<Mouse>/rightButton",
+                    "name": "up",
+                    "id": "e95c9499-9578-4e80-8dd2-f9a286504630",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
-                    "action": "CameraClic",
+                    "action": "Movement",
                     "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Interaction",
-            "id": "a4bcb52d-162c-4f75-a5ff-689af9a27f05",
-            "actions": [
+                    "isPartOfComposite": true
+                },
                 {
-                    "name": "Interact",
-                    "type": "Button",
-                    "id": "56218b20-c764-4cd9-8146-5f600266d8b1",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "ddcf1c81-124d-4f41-81f5-8594b9e7c05a",
-                    "path": "<Keyboard>/e",
+                    "name": "up",
+                    "id": "f3d387e8-45f2-4f49-bbaf-c231b4e91642",
+                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
-                    "action": "Interact",
+                    "action": "Movement",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "574b2b2f-0dd9-41e3-b1bb-1d8a8f95d0d3",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "b1ec08c6-9533-4ae5-bb09-899bf92cfd8e",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "2f1a9d01-6d15-4f8f-8d6a-f9213e8ec6c6",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "b6091a83-5b4d-4cef-b221-912a19158ad8",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "e38658c8-f4c5-4874-a27d-e7e987e1b49e",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "1a8984fd-a09d-402b-b557-097515226380",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
-                    "id": "61b47713-d9e2-4ae7-afdf-3c550d343785",
-                    "path": "<Gamepad>/buttonEast",
+                    "id": "5b0798b1-77e7-4ad0-8976-3aac9125e3e0",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Controller",
-                    "action": "Interact",
+                    "groups": "",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -288,6 +167,24 @@
                     "name": "Up",
                     "type": "Button",
                     "id": "43bcd9b4-d619-498b-a27d-e0e9478d4eff",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "CameraRight",
+                    "type": "Value",
+                    "id": "629b5d5d-92fd-4b90-976e-4e7dc3e3ba06",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "fa0e880e-a43f-4c0d-a37e-3b9e76ac0db9",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -418,6 +315,72 @@
                     "action": "Up",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7fda0392-4a1d-4999-87c8-363c8a096372",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b88a9729-4557-45e9-a48f-6f459ed645de",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fe4ddfe5-d207-427f-89fa-9fb36b58db3b",
+                    "path": "<Gamepad>/rightStick/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "CameraRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "05890262-7e7b-4129-88dc-1a3157473e2c",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraRight",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "4723ff03-3617-4313-a5f3-96ba0278863f",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "CameraRight",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "8d27d502-497d-47ff-b501-8d1754f6c3b8",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "CameraRight",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },
@@ -439,7 +402,7 @@
                 {
                     "name": "",
                     "id": "0d9dc8d0-7f23-41c6-9bd3-247945718669",
-                    "path": "<Keyboard>/j",
+                    "path": "<Keyboard>/#(J)",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",

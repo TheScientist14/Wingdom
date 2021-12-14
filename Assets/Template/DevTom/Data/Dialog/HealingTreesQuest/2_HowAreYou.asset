@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc458440f8ba0fe40a4624a78e02ea7b, type: 3}
   m_Name: 2_HowAreYou
   m_EditorClassIdentifier: 
-  text: 'Hi !
-
-    Such a nice sun we have these days.'
+  text: How are you doing buddy ?
   speaker: {fileID: 11400000, guid: 9cfb470b0533cd84a8d2c82b4516f27e, type: 2}
-  nextBubble: {fileID: 11400000, guid: 409878e7bb80d4942b06ac573118e81e, type: 2}
+  nextBubble: {fileID: 11400000, guid: 420fa3f3fad8462418918dcb51dd917e, type: 2}

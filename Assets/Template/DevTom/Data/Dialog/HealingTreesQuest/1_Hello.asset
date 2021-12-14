@@ -16,4 +16,4 @@ MonoBehaviour:
 
     Such a nice sun we have these days.'
   speaker: {fileID: 11400000, guid: 9cfb470b0533cd84a8d2c82b4516f27e, type: 2}
-  nextBubble: {fileID: 11400000, guid: 409878e7bb80d4942b06ac573118e81e, type: 2}
+  nextBubble: {fileID: 11400000, guid: a876c54a6cc236b4e9f372287906d466, type: 2}

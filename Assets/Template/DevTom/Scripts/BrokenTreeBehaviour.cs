@@ -16,11 +16,13 @@ public class BrokenTreeBehaviour : MonoBehaviour
     void Start()
     {
         interactionListener.hasBeenInteracted.AddListener(Heal);
+        leaves.gameObject.SetActive(false);
     }
 
     void Heal()
     {
-        leaves.material = healedMaterial;
+        //leaves.material = healedMaterial;
+        leaves.gameObject.SetActive(true);
         //isHealed = true;
         interactionListener.SetIsInteractable(false);
     }

@@ -15,6 +15,7 @@ public class Interactable : MonoBehaviour
     private new Camera camera;
     private PlayerInput playerInput;
     private bool canBeInteractable = true;
+    private bool updateUiRotation = false;
 
     public UnityEvent hasBeenInteracted;
 
@@ -33,6 +34,14 @@ public class Interactable : MonoBehaviour
         controlHint.gameObject.SetActive(false);
     }
 
+    void Update()
+    {
+        if (updateUiRotation)
+        {
+            canvas.transform.rotation = camera.transform.rotation;
+        }
+    }
+
     void OnInteract()
     {
         if (canBeInteractable)
@@ -42,20 +51,12 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void OnCameraRight(InputValue value){
+        updateUiRotation = (value.Get<float>() != 0);
     }
-
-    /*void OnCameraMove(){
-        controlHint.transform.rotation = camera.transform.rotation;
-        //controlHint.transform.rotation = Quaternion.Euler(camera.transform.rotation.eulerAngles.x, camera.transform.rotation.eulerAngles.y + 180, camera.transform.rotation.eulerAngles.z);
-    }*/
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("help");
         if (other.gameObject.CompareTag("Player"))
         {
             WaitForInteraction(true);

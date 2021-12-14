@@ -15,7 +15,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     // movement
     [SerializeField] float speed = 5;
-    private Vector3 movement = Vector3.zero;
+    private Vector2 movement = Vector2.zero;
     private float lastForwardInput = 0;
     private float lastRightInput = 0;
     [SerializeField] float jumpForce = 2;
@@ -42,9 +42,6 @@ public class PlayerBehaviour : MonoBehaviour
     void FixedUpdate()
     {
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, camera.transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
-        //rb.MoveRotation(Quaternion.Euler(transform.rotation.eulerAngles.x, camera.transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z));
-        //rb.velocity = movement * speed /** Time.fixedDeltaTime*/ + new Vector3(0, rb.velocity.y, 0);
-        //Debug.Log(movement);
         Vector3 mov = Vector3.zero;
         Vector3 groundNormal = GetGroundNormal();
         if(groundNormal != null && groundNormal.magnitude != 0)
@@ -58,10 +55,11 @@ public class PlayerBehaviour : MonoBehaviour
         if(movement.magnitude >= 0.01)
         {
             // wants to move
+            mov = movement.x * transform.right + movement.y * transform.forward;
             if (groundNormal != null && groundNormal.magnitude != 0)
             {
                 // grounded
-                mov = movement.x * NormalToRight(groundNormal) + movement.z * NormalToForward(groundNormal);
+                mov = mov.x * NormalToRight(groundNormal) + mov.z * NormalToForward(groundNormal);
                 rb.position += transform.up * mov.y * Time.fixedDeltaTime;
                 mov.y = 0;
                 rb.velocity = (mov * speed); //+ rb.velocity.y * Vector3.up;
@@ -69,7 +67,7 @@ public class PlayerBehaviour : MonoBehaviour
             else
             {
                 // in the air
-                rb.velocity = (movement * speed) + rb.velocity.y * Vector3.up;
+                rb.velocity = new Vector3(mov.x * speed, rb.velocity.y, mov.z * speed);
             }
         }
         else
@@ -77,14 +75,10 @@ public class PlayerBehaviour : MonoBehaviour
             // doesn’t want to move
             rb.velocity = new Vector3(0, rb.velocity.y, 0);
         }
-        //characterController.Move(mov * speed * Time.fixedDeltaTime);
-        //characterController.Move((characterController.velocity.y - gravity * Time.fixedDeltaTime) * Vector3.up);
-        //transform.position += movement * speed * Time.fixedDeltaTime;
         rb.velocity = new Vector3(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -10, 10), rb.velocity.z);
         if (jump)
         {
             rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-            //characterController.SimpleMove(transform.up * jumpForce);
             jump = false;
         }
     }
@@ -120,7 +114,6 @@ public class PlayerBehaviour : MonoBehaviour
         //return Vector3.up;
     }
 
-    // normal need to be normalized
     Vector3 NormalToRight(Vector3 normal)
     {
         if(normal.y == 0)
@@ -166,18 +159,9 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
-    void OnRight(InputValue value)
+    void OnMovement(InputValue value)
     {
-        float val = value.Get<float>();
-        movement = movement + (val - lastRightInput) * transform.right;
-        lastRightInput = val;
-    }
-
-    void OnForward(InputValue value)
-    {
-        float val = value.Get<float>();
-        movement = movement + (val - lastForwardInput) * transform.forward;
-        lastForwardInput = val;
+        movement = value.Get<Vector2>();
     }
 
     void OnJump()
@@ -191,11 +175,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     void OnCollisionEnter(Collision colInfo)
     {
-        Debug.Log("collision");
         foreach(ContactPoint contactPoint in colInfo.contacts)
         {
-            //Debug.Log(contactPoint.normal);
-            //Debug.Log(Vector3.Dot(transform.up, contactPoint.normal));
             if (Vector3.Dot(transform.up, contactPoint.normal.normalized) >= 1 - flatTerrainTolerance)
             {
                 isGrounded = true;
@@ -205,7 +186,6 @@ public class PlayerBehaviour : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        //print("drawn");
         col = GetComponent<CapsuleCollider>();
         Vector3 origin = transform.position - (col.height / 2 - col.radius - airTolerance / 2) * transform.up;
         Gizmos.DrawSphere(origin, 0.05f);
