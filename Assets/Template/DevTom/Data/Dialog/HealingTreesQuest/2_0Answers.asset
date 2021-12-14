@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8c9748b3111187438510448e167d3c7, type: 3}
-  m_Name: 2_0_HowAreYou
+  m_Script: {fileID: 11500000, guid: 447b1a49fba492447bc3cb6a1876c26f, type: 3}
+  m_Name: 2_0Answers
   m_EditorClassIdentifier: 
-  text: How are you doing buddy ?
-  speaker: {fileID: 11400000, guid: 9cfb470b0533cd84a8d2c82b4516f27e, type: 2}
   answers:
   - {fileID: 11400000, guid: 36278d0606363684ca48f82177ffac22, type: 2}
   - {fileID: 11400000, guid: d54a8b2431ced81459a15f54d318ed64, type: 2}

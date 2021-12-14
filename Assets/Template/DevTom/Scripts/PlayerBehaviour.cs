@@ -101,9 +101,16 @@ public class PlayerBehaviour : MonoBehaviour
             Debug.Log("air !!!");
             return Vector3.zero;
         }*/
-        if (Physics.SphereCast(transform.position - (col.height / 2 - col.radius) * transform.up, col.radius, -transform.up, out hit, airTolerance))
+        if (Physics.SphereCast(transform.position - (col.height / 2 - col.radius - airTolerance / 2) * transform.up, col.radius, -transform.up, out hit, 1))
         {
-            return hit.normal;
+            if(hit.distance < airTolerance)
+            {
+                return hit.normal;
+            }
+            else
+            {
+                return Vector3.zero;
+            }
         }
         else
         {
@@ -200,17 +207,20 @@ public class PlayerBehaviour : MonoBehaviour
     {
         //print("drawn");
         col = GetComponent<CapsuleCollider>();
-        Vector3 origin = transform.position - (col.height / 2 - col.radius) * transform.up;
+        Vector3 origin = transform.position - (col.height / 2 - col.radius - airTolerance / 2) * transform.up;
         Gizmos.DrawSphere(origin, 0.05f);
         Ray ray = new Ray(origin, -transform.up);
         Gizmos.DrawRay(ray);
         RaycastHit hit;
-        if (Physics.SphereCast(ray, col.radius, out hit, airTolerance))
+        if (Physics.SphereCast(ray, col.radius, out hit, 1))
         {
-            Gizmos.color = Color.blue;
-            Gizmos.DrawLine(hit.point, hit.point + 2 * NormalToForward(hit.normal));
-            Gizmos.color = Color.red;
-            Gizmos.DrawLine(hit.point, hit.point + 2 * NormalToRight(hit.normal));
+            if(hit.distance < airTolerance)
+            {
+                Gizmos.color = Color.blue;
+                Gizmos.DrawLine(hit.point, hit.point + 2 * NormalToForward(hit.normal));
+                Gizmos.color = Color.red;
+                Gizmos.DrawLine(hit.point, hit.point + 2 * NormalToRight(hit.normal));
+            }
         }
     }
 }
