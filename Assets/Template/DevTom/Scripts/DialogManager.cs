@@ -9,18 +9,18 @@ public class DialogManager : MonoBehaviour
 {
     [SerializeField] Image speakerIcon;
     [SerializeField] TextMeshProUGUI text;
-    [SerializeField] TextMeshProUGUI overflownText;
     [SerializeField] GameObject dialogsContainer;
     [SerializeField] GameObject[] answerButtons;
     [SerializeField] GameObject nextButton;
     [SerializeField] TextMeshProUGUI[] answersText;
+    [SerializeField] Speaker player;
 
-    private Conversation currentConversation;
-    private int eventIndex = -1;
-    private bool needsToShowAnswers = false;
+    private BubbleSpeech currentBubble;
     private PlayerInput[] inputs;
 
     public static DialogManager instance;
+
+    public BubbleSpeech test;
 
     void Awake()
     {
@@ -43,18 +43,18 @@ public class DialogManager : MonoBehaviour
         {
             answerButton.SetActive(false);
         }
+        StartDialog(test);
     }
 
-    public void StartDialog(Conversation conversation)
+    public void StartDialog(BubbleSpeech conversation)
     {
-        currentConversation = conversation;
-        eventIndex = -1;
+        currentBubble = conversation;
         dialogsContainer.SetActive(true);
         foreach(PlayerInput input in inputs)
         {
             input.enabled = false;
         }
-        Next();
+        updateBubble();
     }
 
     private void EndDialog()
@@ -70,13 +70,14 @@ public class DialogManager : MonoBehaviour
     {
         if (!text.isTextOverflowing)
         {
-            if (needsToShowAnswers)
+            if (currentBubble.nextBubble != null)
             {
-                displayAnswers();
+                currentBubble = currentBubble.nextBubble;
+                updateBubble();
             }
             else
             {
-                nextBubble();
+                EndDialog();
             }
         }
         else
@@ -87,47 +88,46 @@ public class DialogManager : MonoBehaviour
 
     public void Answer(int i)
     {
-        // TODO : implement empathy impact
-        Debug.Log("empathy : +" + ((Question)currentConversation.bubbleSpeeches[eventIndex]).answers[i].empathyImpact);
+        Answer chosenAnswer = ((Answers)currentBubble).answers[i];
+        foreach (Answer.PnjEmpathyImpact pnjEmpathyImpact in chosenAnswer.pnjEmpathyImpacts)
+        {
+            EmpathyManager.instance.UpdateEmpathyPNJ(pnjEmpathyImpact.pnj, pnjEmpathyImpact.empathyImpact);
+        }
         text.gameObject.SetActive(true);
         nextButton.SetActive(true);
         foreach(GameObject answerButton in answerButtons)
         {
             answerButton.SetActive(false);
         }
-        needsToShowAnswers = false;
+        currentBubble = chosenAnswer;
         Next();
     }
 
-    private void nextBubble()
+    private void updateBubble()
     {
-        if (eventIndex + 1 < currentConversation.bubbleSpeeches.Length)
+        if(currentBubble is Answers)
         {
-            eventIndex++;
-            overflownText.text = "";
-            text.text = currentConversation.bubbleSpeeches[eventIndex].text;
-            speakerIcon.sprite = currentConversation.bubbleSpeeches[eventIndex].speaker.icon;
-            if (currentConversation.bubbleSpeeches[eventIndex] is Question)
-            {
-                needsToShowAnswers = true;
-            }
+            displayAnswers();
         }
         else
         {
-            EndDialog();
+            text.text = currentBubble.text;
+            speakerIcon.sprite = currentBubble.speaker.icon;
+            // speaker name
         }
     }
 
     private void displayAnswers()
     {
+        // currentBubble is Answers
         text.gameObject.SetActive(false);
         nextButton.SetActive(false);
-        speakerIcon.sprite = currentConversation.player.icon;
-        Answer[] answers = ((Question)currentConversation.bubbleSpeeches[eventIndex]).answers;
+        speakerIcon.sprite = player.icon;
+        Answer[] answers = ((Answers)currentBubble).answers;
         for(int i = 0; i < answers.Length; i++)
         {
             answerButtons[i].SetActive(true);
-            answersText[i].text = answers[i].answer;
+            answersText[i].text = answers[i].text;
         }
     }
 }

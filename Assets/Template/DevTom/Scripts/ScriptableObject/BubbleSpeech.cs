@@ -6,4 +6,5 @@ public abstract class BubbleSpeech : ScriptableObject
 {
     [Multiline] public string text;
     public Speaker speaker;
+    public BubbleSpeech nextBubble;
 }

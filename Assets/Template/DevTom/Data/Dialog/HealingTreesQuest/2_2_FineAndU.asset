@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 510c0b9f6f12fc44da02ecc91cbe544f, type: 3}
   m_Name: 2_2_FineAndU
   m_EditorClassIdentifier: 
-  answer: Fine, what about you ?
-  empathyImpact: 1
+  text: Fine, what about you ?
+  speaker: {fileID: 0}
+  nextBubble: {fileID: 11400000, guid: 0955b6f18b3347c47bc0a377193408ac, type: 2}

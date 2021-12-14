@@ -1,10 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Answer", menuName = "ScriptableObjects/BubbleSpeech/Answer")]
-public class Answer : ScriptableObject
+public class Answer : BubbleSpeech
 {
-    public string answer;
-    public float empathyImpact;
+    [Serializable]
+    public struct PnjEmpathyImpact
+    {
+        public Speaker pnj;
+        public int empathyImpact;
+    }
+
+    public PnjEmpathyImpact[] pnjEmpathyImpacts;
 }

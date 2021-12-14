@@ -1397,7 +1397,7 @@ MonoBehaviour:
   - {fileID: 4757500446184466981}
   - {fileID: 4945338729657742587}
   - {fileID: 2949001779443810912}
-  test: {fileID: 0}
+  player: {fileID: 11400000, guid: a36021c2c089c8c40ac600a0ee589429, type: 2}
 --- !u!1 &8188705172156604656
 GameObject:
   m_ObjectHideFlags: 0

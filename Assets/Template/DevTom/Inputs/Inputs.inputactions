@@ -369,6 +369,45 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Journal",
+            "id": "c75ad8b6-6a13-40fd-98ce-351cd9a71359",
+            "actions": [
+                {
+                    "name": "Journal",
+                    "type": "Button",
+                    "id": "304c898b-53c5-4b95-a291-e755acb3e234",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "0d9dc8d0-7f23-41c6-9bd3-247945718669",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Journal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "76d62abf-cb38-4555-bf01-fca36231e67c",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Journal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
