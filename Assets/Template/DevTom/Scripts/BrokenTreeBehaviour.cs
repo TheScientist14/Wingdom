@@ -10,7 +10,7 @@ public class BrokenTreeBehaviour : MonoBehaviour
     [SerializeField] Material healedMaterial;
     [SerializeField] Interactable interactionListener;
 
-    //private bool isHealed = false;
+    private bool isHealed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,12 @@ public class BrokenTreeBehaviour : MonoBehaviour
     {
         //leaves.material = healedMaterial;
         leaves.gameObject.SetActive(true);
-        //isHealed = true;
+        isHealed = true;
         interactionListener.SetIsInteractable(false);
+    }
+
+    public bool HasBeenHealed()
+    {
+        return isHealed;
     }
 }
