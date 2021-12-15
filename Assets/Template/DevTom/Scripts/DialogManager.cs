@@ -20,8 +20,6 @@ public class DialogManager : MonoBehaviour
 
     public static DialogManager instance;
 
-    public BubbleSpeech test;
-
     void Awake()
     {
         if (instance == null)
@@ -43,7 +41,6 @@ public class DialogManager : MonoBehaviour
         {
             answerButton.SetActive(false);
         }
-        StartDialog(test);
     }
 
     public void StartDialog(BubbleSpeech conversation)
