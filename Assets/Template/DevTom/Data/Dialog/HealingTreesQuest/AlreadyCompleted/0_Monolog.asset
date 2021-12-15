@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: I already thanked you.
   speaker: {fileID: 11400000, guid: 9cfb470b0533cd84a8d2c82b4516f27e, type: 2}
-  nextBubble: {fileID: 0}
+  nextBubble: {fileID: 11400000, guid: 467353cf73c964d46abea8ba3c770699, type: 2}
