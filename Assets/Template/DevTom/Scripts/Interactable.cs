@@ -13,22 +13,19 @@ public class Interactable : MonoBehaviour
     [SerializeField] TextMeshProUGUI controlHint;
 
     private new Camera camera;
-    private PlayerInput playerInput;
     private bool canBeInteractable = true;
+    private bool isInRange = false;
     private bool updateUiRotation = false;
-
-    public UnityEvent hasBeenInteracted;
+    private ArrayList listeners;
 
     void Awake()
     {
-        playerInput = GetComponent<PlayerInput>();
-        hasBeenInteracted = new UnityEvent();
+        listeners = new ArrayList();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        playerInput.enabled = false;
         camera = Camera.main;
         canvas.transform.rotation = camera.transform.rotation;
         controlHint.gameObject.SetActive(false);
@@ -44,10 +41,10 @@ public class Interactable : MonoBehaviour
 
     void OnInteract()
     {
-        if (canBeInteractable)
+        if (canBeInteractable && isInRange)
         {
             WaitForInteraction(false);
-            hasBeenInteracted.Invoke();
+            Invoke();
         }
     }
 
@@ -75,12 +72,12 @@ public class Interactable : MonoBehaviour
     {
         if (canBeInteractable)
         {
-            playerInput.enabled = isInteractable;
+            isInRange = isInteractable;
             controlHint.gameObject.SetActive(isInteractable);
         }
         else
         {
-            playerInput.enabled = false;
+            isInRange = false;
             controlHint.gameObject.SetActive(false);
         }
     }
@@ -88,5 +85,18 @@ public class Interactable : MonoBehaviour
     public void SetIsInteractable(bool canBeInteractable)
     {
         this.canBeInteractable = canBeInteractable;
+    }
+
+    public void AddAction(UnityAction unityAction)
+    {
+        listeners.Add(unityAction);
+    }
+
+    private void Invoke()
+    {
+        foreach(UnityAction unityAction in listeners)
+        {
+            unityAction.Invoke();
+        }
     }
 }

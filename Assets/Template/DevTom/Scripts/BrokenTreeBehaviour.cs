@@ -15,7 +15,7 @@ public class BrokenTreeBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        interactionListener.hasBeenInteracted.AddListener(Heal);
+        interactionListener.AddAction(Heal);
         leaves.gameObject.SetActive(false);
     }
 
