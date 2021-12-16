@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 510c0b9f6f12fc44da02ecc91cbe544f, type: 3}
-  m_Name: 5_2_Negative_Answer 2
+  m_Name: 5_1_Positive_Answer
   m_EditorClassIdentifier: 
-  text: No, I don't have time for this
+  text: Yes of course !
   speaker: {fileID: 11400000, guid: fd5f31b9ff0a7e04eaa66e14a83adc5b, type: 2}
-  nextBubble: {fileID: 11400000, guid: f9f8e30eb90196f4eab72e23056485cf, type: 2}
+  nextBubble: {fileID: 11400000, guid: 033fd6db0a508c24584de06bd27a5ed4, type: 2}
   pnjEmpathyImpacts:
   - pnj: {fileID: 11400000, guid: 96fb37f40f0151d41986cc69a673234f, type: 2}
-    empathyImpact: -2
+    empathyImpact: 2

@@ -10,13 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc458440f8ba0fe40a4624a78e02ea7b, type: 3}
-  m_Name: 7_1_Uncompleted
+  m_Name: 6_2_Uncompleted
   m_EditorClassIdentifier: 
-  text: 'Thank you so much adventurer !
+  text: 'Oh ! You are back
 
-    I want to thank you, here, keep this
-    potion.
-
-    You will surely need it.'
+    Are you ready to help me now ?'
   speaker: {fileID: 11400000, guid: 96fb37f40f0151d41986cc69a673234f, type: 2}
-  nextBubble: {fileID: 0}
+  nextBubble: {fileID: 11400000, guid: 5d60779f206c148429f9901195313111, type: 2}

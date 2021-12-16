@@ -15,7 +15,12 @@ public class PnjQuestBehaviour : PnjBehaviour
 
     bool endingQuestDialogHasBeenShown = false;
 
-   protected override void Talk()
+    private void OnTriggerEnter(Collider other)
+    {
+        Talk();
+    }
+
+    protected override void Talk()
     {
         switch (quest.getProgress())
         {
