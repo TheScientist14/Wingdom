@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2359356346736481211}
-  - component: {fileID: 2359356346736481210}
   - component: {fileID: 2359356346736481209}
+  - component: {fileID: 4310766901859871415}
   m_Layer: 0
   m_Name: Camera Pivot
   m_TagString: Untagged
@@ -34,30 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 30, y: 45, z: 0}
---- !u!114 &2359356346736481210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2359356346736481208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02fd368c8d985744ea38d432f92ee215, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  camera: {fileID: 2359356347130414778}
-  cameraHorizontalRotationSpeed: 30
-  cameraVerticalRotationSpeed: 10
-  verticalMinAngle: 10
-  verticalMaxAngle: 50
-  cameraZoomSpeed: 1
-  cameraZoomLevels:
-  - 5
-  - 7
-  - 15
-  smoothFactor: 0.5
 --- !u!114 &2359356346736481209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,6 +64,27 @@ MonoBehaviour:
   m_DefaultActionMap: MenuNavigation
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &4310766901859871415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2359356346736481208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e246b091a0417245a69376a1ee4da63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  camera: {fileID: 2359356347130414778}
+  cameraHorizontalRotationSpeed: 30
+  cameraVerticalRotationSpeed: 5
+  verticalMinAngle: 20
+  verticalMaxAngle: 50
+  cameraZoomSpeed: 1
+  cameraZoomLevels: []
+  smoothFactor: 0.5
 --- !u!1 &2359356347130414727
 GameObject:
   m_ObjectHideFlags: 0

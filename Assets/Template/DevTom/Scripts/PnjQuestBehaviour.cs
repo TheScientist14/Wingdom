@@ -5,12 +5,13 @@ using UnityEngine;
 public class PnjQuestBehaviour : PnjBehaviour
 {
     [SerializeField] Quest quest;
-    [SerializeField] Monolog startingQuestDialog;
-    [SerializeField] Monolog onGoingQuestDialog;
-    [SerializeField] Monolog failedQuestDialog;
-    [SerializeField] Monolog failedQuestReminderDialog;
-    [SerializeField] Monolog completedQuestDialog;
-    [SerializeField] Monolog completedQuestReminderDialog;
+    [SerializeField] BubbleSpeech startingQuestDialog;
+    [SerializeField] BubbleSpeech propositionQuestDialog;
+    [SerializeField] BubbleSpeech onGoingQuestDialog;
+    [SerializeField] BubbleSpeech failedQuestDialog;
+    [SerializeField] BubbleSpeech failedQuestReminderDialog;
+    [SerializeField] BubbleSpeech completedQuestDialog;
+    [SerializeField] BubbleSpeech completedQuestReminderDialog;
 
     bool endingQuestDialogHasBeenShown = false;
 
@@ -18,9 +19,12 @@ public class PnjQuestBehaviour : PnjBehaviour
     {
         switch (quest.getProgress())
         {
-            case Quest.QuestState.NotStarted:
+            case Quest.QuestState.Unknown:
                 DialogManager.instance.StartDialog(startingQuestDialog);
-                quest.StartQuest();
+                quest.SetProgress(Quest.QuestState.Unaccepted);
+                break;
+            case Quest.QuestState.Unaccepted:
+                DialogManager.instance.StartDialog(propositionQuestDialog);
                 break;
             case Quest.QuestState.Started:
                 DialogManager.instance.StartDialog(onGoingQuestDialog);
@@ -46,9 +50,6 @@ public class PnjQuestBehaviour : PnjBehaviour
                 {
                     DialogManager.instance.StartDialog(completedQuestReminderDialog);
                 }
-                break;
-            case Quest.QuestState.Uncompleted:
-
                 break;
         }
     }
