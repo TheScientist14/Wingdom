@@ -283,28 +283,6 @@
                 },
                 {
                     "name": "",
-                    "id": "91add007-94e0-4d59-9644-cee68e67f368",
-                    "path": "*/{Menu}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse;Controller",
-                    "action": "ShowHide",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "73a9343f-9458-4a16-bbd6-6cea79d600e1",
-                    "path": "<Keyboard>/p",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "ShowHide",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "cb317636-1b98-4d07-a9e3-b964fde15189",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
@@ -454,6 +432,17 @@
                     "processors": "",
                     "groups": "KeyboardMouse",
                     "action": "CameraZoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "73a9343f-9458-4a16-bbd6-6cea79d600e1",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "ShowHide",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

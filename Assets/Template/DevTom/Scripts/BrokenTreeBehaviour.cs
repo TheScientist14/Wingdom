@@ -11,12 +11,14 @@ public class BrokenTreeBehaviour : MonoBehaviour
     [SerializeField] Interactable interactionListener;
 
     private bool isHealed = false;
+    private bool canBeHealed = false;
 
     // Start is called before the first frame update
     void Start()
     {
         interactionListener.AddAction(Heal);
         leaves.gameObject.SetActive(false);
+        interactionListener.SetIsInteractable(false);
     }
 
     void Heal()
@@ -30,5 +32,10 @@ public class BrokenTreeBehaviour : MonoBehaviour
     public bool HasBeenHealed()
     {
         return isHealed;
+    }
+
+    public void SetCanBeHealed(bool canBeHealed)
+    {
+        interactionListener.SetIsInteractable(canBeHealed);
     }
 }

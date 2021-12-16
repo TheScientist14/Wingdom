@@ -16,6 +16,7 @@ public class DialogManager : MonoBehaviour
     [SerializeField] Speaker player;
 
     private BubbleSpeech currentBubble;
+    private BubbleSpeech lastBubble;
     private PlayerInput[] inputs;
 
     public static DialogManager instance;
@@ -69,6 +70,7 @@ public class DialogManager : MonoBehaviour
         {
             if (currentBubble.nextBubble != null)
             {
+                lastBubble = currentBubble;
                 currentBubble = currentBubble.nextBubble;
                 updateBubble();
             }
@@ -96,6 +98,7 @@ public class DialogManager : MonoBehaviour
         {
             answerButton.SetActive(false);
         }
+        lastBubble = currentBubble;
         currentBubble = chosenAnswer;
         Next();
     }
@@ -126,5 +129,10 @@ public class DialogManager : MonoBehaviour
             answerButtons[i].SetActive(true);
             answersText[i].text = answers[i].text;
         }
+    }
+
+    public BubbleSpeech GetLastBubble()
+    {
+        return lastBubble;
     }
 }

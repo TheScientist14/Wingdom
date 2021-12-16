@@ -4,12 +4,22 @@ using UnityEngine;
 
 public class HealingTreesQuest : Quest
 {
+    [SerializeField] BubbleSpeech acceptedQuestEndDialog;
+
     private BrokenTreeBehaviour[] brokenTrees;
 
     // Start is called before the first frame update
     void Start()
     {
         brokenTrees = FindObjectsOfType<BrokenTreeBehaviour>();
+    }
+
+    void Update()
+    {
+        if (DialogManager.instance.GetLastBubble() != null && DialogManager.instance.GetLastBubble().Equals(acceptedQuestEndDialog) && (state == QuestState.Unknown || state == QuestState.Unaccepted))
+        {
+            StartQuest();
+        }
     }
 
     IEnumerator UpdateQuestState()
@@ -36,6 +46,10 @@ public class HealingTreesQuest : Quest
     public override void StartQuest()
     {
         base.StartQuest();
+        foreach(BrokenTreeBehaviour brokenTree in brokenTrees)
+        {
+            brokenTree.SetCanBeHealed(true);
+        }
         StartCoroutine("UpdateQuestState");
     }
 

@@ -1,19 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Quest : MonoBehaviour
 {
-    protected QuestState state = QuestState.NotStarted;
+    protected QuestState state = QuestState.Unknown;
 
     public enum QuestState
     {
-        NotStarted, Started, Failed, Completed
+        Unknown, Unaccepted, Started, Failed, Completed
     }
 
     public QuestState getProgress()
     {
         return state;
+    }
+
+    public void SetProgress(QuestState newState)
+    {
+        state = newState;
     }
 
     public virtual void StartQuest()
