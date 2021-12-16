@@ -47,6 +47,9 @@ public class PnjQuestBehaviour : PnjBehaviour
                     DialogManager.instance.StartDialog(completedQuestReminderDialog);
                 }
                 break;
+            case Quest.QuestState.Uncompleted:
+
+                break;
         }
     }
 }
