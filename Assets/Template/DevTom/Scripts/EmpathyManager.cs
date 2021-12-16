@@ -48,12 +48,12 @@ public class EmpathyManager : MonoBehaviour
     // empathy managing
     public void RegisterPNJ(Speaker pnj)
     {
-        pnjEmpathy[pnj] = 0;
+        RegisterPNJ(pnj, 0);
     }
 
     public void RegisterPNJ(Speaker pnj, int initEmpathy)
     {
-        pnjEmpathy[pnj] = initEmpathy;
+        pnjEmpathy.Add(pnj, initEmpathy);
     }
 
     public void UpdateEmpathyPNJ(Speaker pnj, int empathyDelta)
