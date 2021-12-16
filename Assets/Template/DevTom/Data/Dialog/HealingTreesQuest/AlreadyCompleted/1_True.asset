@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc458440f8ba0fe40a4624a78e02ea7b, type: 3}
   m_Name: 1_True
   m_EditorClassIdentifier: 
-  text: 
-  speaker: {fileID: 0}
+  text: True
+  speaker: {fileID: 11400000, guid: a36021c2c089c8c40ac600a0ee589429, type: 2}
   nextBubble: {fileID: 0}

@@ -9,15 +9,13 @@ public class PlayerBehaviour : MonoBehaviour
     private Rigidbody rb;
     //private CharacterController characterController;
     private CapsuleCollider col;
-    private MeshRenderer meshRenderer;
+    //private MeshRenderer meshRenderer;
 
     private new Camera camera;
 
     // movement
     [SerializeField] float speed = 5;
     private Vector2 movement = Vector2.zero;
-    private float lastForwardInput = 0;
-    private float lastRightInput = 0;
     [SerializeField] float jumpForce = 2;
     [SerializeField] float flatTerrainTolerance = 0.2f;
     [SerializeField] float airTolerance = 0.01f;
@@ -29,7 +27,7 @@ public class PlayerBehaviour : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         //characterController = GetComponent<CharacterController>();
         col = GetComponent<CapsuleCollider>();
-        meshRenderer = GetComponent<MeshRenderer>();
+        //meshRenderer = GetComponent<MeshRenderer>();
     }
 
     // Start is called before the first frame update
@@ -41,21 +39,27 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, camera.transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+        //transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, camera.transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+        Vector3 forward = camera.transform.forward;
+        forward.y = 0;
+        forward.Normalize();
+        Vector3 right = camera.transform.right;
+        right.y = 0;
+        right.Normalize();
         Vector3 mov = Vector3.zero;
         Vector3 groundNormal = GetGroundNormal();
-        if(groundNormal != null && groundNormal.magnitude != 0)
+/*        if(groundNormal != null && groundNormal.magnitude != 0)
         {
             meshRenderer.material.color = Color.blue;
         }
         else
         {
             meshRenderer.material.color = Color.red;
-        }
+        }*/
         if(movement.magnitude >= 0.01)
         {
             // wants to move
-            mov = movement.x * transform.right + movement.y * transform.forward;
+            mov = movement.x * right + movement.y * forward;
             if (groundNormal != null && groundNormal.magnitude != 0)
             {
                 // grounded
@@ -69,6 +73,7 @@ public class PlayerBehaviour : MonoBehaviour
                 // in the air
                 rb.velocity = new Vector3(mov.x * speed, rb.velocity.y, mov.z * speed);
             }
+            transform.LookAt(transform.position + mov);
         }
         else
         {
