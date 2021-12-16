@@ -24,17 +24,18 @@ public class PauseMenu : MonoBehaviour
         
         if (_isShow == false)
         {
+            _isShow = true;
             print("affiché");
             PMenu.SetActive(true);
             GameManager.instance.Pause();
-            _isShow = true;
         }
         else
         {
+            _isShow = false;
+
             print("caché");
             PMenu.SetActive(false);
             GameManager.instance.Resume();
-            _isShow = false;
         }
     }
 
