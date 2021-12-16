@@ -51,8 +51,8 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    void OnCameraRight(InputValue value){
-        updateUiRotation = (value.Get<float>() != 0);
+    void OnCameraMovement(InputValue value){
+        updateUiRotation = (value.Get<Vector2>().magnitude != 0);
     }
 
     void OnTriggerEnter(Collider other)
