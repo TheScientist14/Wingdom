@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec5d81e53484af44ea3e456b27be9400, type: 3}
-  m_Name: S_Vanias
+  m_Script: {fileID: 11500000, guid: 447b1a49fba492447bc3cb6a1876c26f, type: 3}
+  m_Name: 2_0_Answers
   m_EditorClassIdentifier: 
-  name: Vanias
-  icon: {fileID: 21300000, guid: 0ac55f9f886d827408c102bdf33c5ff7, type: 3}
-  journalDescription: "She\u2019s Vanias, goddes of nature.\nShe wants me to heal
-    some trees."
+  text: 
+  speaker: {fileID: 0}
+  nextBubble: {fileID: 0}
+  answers:
+  - {fileID: 11400000, guid: 04892f28e51291141b2772fe53018584, type: 2}

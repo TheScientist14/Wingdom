@@ -19,5 +19,5 @@ MonoBehaviour:
 
     Can
     you take care of them ?'
-  speaker: {fileID: 11400000, guid: 9cfb470b0533cd84a8d2c82b4516f27e, type: 2}
+  speaker: {fileID: 11400000, guid: 96fb37f40f0151d41986cc69a673234f, type: 2}
   nextBubble: {fileID: 11400000, guid: 5d60779f206c148429f9901195313111, type: 2}

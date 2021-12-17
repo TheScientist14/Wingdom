@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec5d81e53484af44ea3e456b27be9400, type: 3}
-  m_Name: S_Vanias
+  m_Name: S_TomPlayer
   m_EditorClassIdentifier: 
-  name: Vanias
-  icon: {fileID: 21300000, guid: c3bc5fd01904e1e42b6234f65a33e6c5, type: 3}
-  journalDescription: "She\u2019s Vanias, goddess of nature.\nShe wants me to heal
-    some trees."
+  name: Me
+  icon: {fileID: 21300000, guid: 0f061b4bd0275bc4eb60f2af31e7375a, type: 3}
+  journalDescription: "Hey, that\u2019s me !"
