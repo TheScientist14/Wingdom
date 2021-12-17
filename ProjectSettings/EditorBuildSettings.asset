@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Template/DevAlban/Alban.unity
+    guid: 192c67358ef7fe5468b1ea394e2ac2b0
   m_configObjects: {}

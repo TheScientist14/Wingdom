@@ -445,6 +445,17 @@
                     "action": "ShowHide",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bb3003f3-e0a9-48c1-8240-bca547a40a75",
+                    "path": "*/{Menu}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse;Controller",
+                    "action": "ShowHide",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
