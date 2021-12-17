@@ -10,7 +10,8 @@ public class PnjBehaviour : MonoBehaviour
     // Start is called before the first frame update
     protected void Start()
     {
-        interactable.AddAction(Talk);
+        if (interactable != null)
+            interactable.AddAction(Talk);
     }
 
     protected virtual void Talk()
