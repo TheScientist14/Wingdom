@@ -7,9 +7,7 @@ public class PlayerBehaviour : MonoBehaviour
 {
     // character
     private Rigidbody rb;
-    //private CharacterController characterController;
     private CapsuleCollider col;
-    //private MeshRenderer meshRenderer;
 
     private new Camera camera;
 
@@ -25,9 +23,7 @@ public class PlayerBehaviour : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        //characterController = GetComponent<CharacterController>();
         col = GetComponent<CapsuleCollider>();
-        //meshRenderer = GetComponent<MeshRenderer>();
     }
 
     // Start is called before the first frame update
@@ -39,34 +35,32 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, camera.transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
-        Vector3 forward = camera.transform.forward;
-        forward.y = 0;
-        forward.Normalize();
-        Vector3 right = camera.transform.right;
-        right.y = 0;
-        right.Normalize();
-        Vector3 mov = Vector3.zero;
-        Vector3 groundNormal = GetGroundNormal();
-/*        if(groundNormal != null && groundNormal.magnitude != 0)
-        {
-            meshRenderer.material.color = Color.blue;
-        }
-        else
-        {
-            meshRenderer.material.color = Color.red;
-        }*/
         if(movement.magnitude >= 0.01)
         {
             // wants to move
-            mov = movement.x * right + movement.y * forward;
-            if (groundNormal != null && groundNormal.magnitude != 0)
+            Vector3 right = camera.transform.right;
+            Vector3 forward = Vector3.Cross(right, Vector3.up);
+            Vector3 mov = movement.x * right + movement.y * forward;
+
+            // getting ground info
+            RaycastHit hit;
+            isGrounded = false;
+            if (Physics.SphereCast(transform.position - (col.height / 2 - col.radius - airTolerance / 2) * transform.up, col.radius, -transform.up, out hit, 1))
+            {
+                if (hit.distance <= airTolerance)
+                {
+                    isGrounded = true;
+                }
+            }
+
+            if (isGrounded && hit.normal != null && hit.normal.magnitude != 0)
             {
                 // grounded
-                mov = mov.x * NormalToRight(groundNormal) + mov.z * NormalToForward(groundNormal);
-                rb.position += transform.up * mov.y * Time.fixedDeltaTime;
+                mov = mov.x * NormalToRight(hit.normal) + mov.z * NormalToForward(hit.normal);
+                rb.position -= hit.distance * transform.up;
+                rb.position += mov.y * speed * Time.fixedDeltaTime * transform.up;
                 mov.y = 0;
-                rb.velocity = (mov * speed); //+ rb.velocity.y * Vector3.up;
+                rb.velocity = (mov * speed);
             }
             else
             {
@@ -80,43 +74,12 @@ public class PlayerBehaviour : MonoBehaviour
             // doesn’t want to move
             rb.velocity = new Vector3(0, rb.velocity.y, 0);
         }
-        rb.velocity = new Vector3(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -10, 10), rb.velocity.z);
+        /*rb.velocity = new Vector3(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -10, 10), rb.velocity.z);*/
         if (jump)
         {
             rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
             jump = false;
         }
-    }
-
-    Vector3 GetGroundNormal()
-    {
-        RaycastHit hit;
-        /*if (Physics.Raycast(transform.position - (col.height/2) * transform.up, -transform.up, out hit, 0.2f))
-        {
-            return hit.normal;
-        }
-        else
-        {
-            Debug.Log("air !!!");
-            return Vector3.zero;
-        }*/
-        if (Physics.SphereCast(transform.position - (col.height / 2 - col.radius - airTolerance / 2) * transform.up, col.radius, -transform.up, out hit, 1))
-        {
-            if(hit.distance < airTolerance)
-            {
-                return hit.normal;
-            }
-            else
-            {
-                return Vector3.zero;
-            }
-        }
-        else
-        {
-            Debug.Log("air !!!");
-            return Vector3.zero;
-        }
-        //return Vector3.up;
     }
 
     Vector3 NormalToRight(Vector3 normal)
