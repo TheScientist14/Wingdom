@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.InputSystem;
 
 public class DialogManager : MonoBehaviour
 {
@@ -17,7 +16,6 @@ public class DialogManager : MonoBehaviour
 
     private BubbleSpeech currentBubble;
     private BubbleSpeech lastBubble;
-    private PlayerInput[] inputs;
 
     public static DialogManager instance;
 
@@ -37,7 +35,6 @@ public class DialogManager : MonoBehaviour
     void Start()
     {
         dialogsContainer.SetActive(false);
-        inputs = FindObjectsOfType<PlayerInput>();
         foreach(GameObject answerButton in answerButtons)
         {
             answerButton.SetActive(false);
@@ -48,19 +45,13 @@ public class DialogManager : MonoBehaviour
     {
         currentBubble = conversation;
         dialogsContainer.SetActive(true);
-        foreach(PlayerInput input in inputs)
-        {
-            input.enabled = false;
-        }
+        GameManager.instance.SetInputsActive(false);
         updateBubble();
     }
 
     private void EndDialog()
     {
-        foreach (PlayerInput input in inputs)
-        {
-            input.enabled = true;
-        }
+        GameManager.instance.SetInputsActive(true);
         dialogsContainer.SetActive(false);
     }
 

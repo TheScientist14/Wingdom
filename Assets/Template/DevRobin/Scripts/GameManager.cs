@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
+    private PlayerInput[] inputs;
 
     private void Awake()
     {
@@ -18,10 +19,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+        inputs = FindObjectsOfType<PlayerInput>();
     }
 
     // Update is called once per frame
@@ -38,5 +38,13 @@ public class GameManager : MonoBehaviour
     public void Resume()
     {
         Time.timeScale = 1;
+    }
+
+    public void SetInputsActive(bool enabled)
+    {
+        foreach (PlayerInput input in inputs)
+        {
+            input.enabled = enabled;
+        }
     }
 }

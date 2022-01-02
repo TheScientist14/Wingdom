@@ -83,7 +83,10 @@ MonoBehaviour:
   verticalMinAngle: 20
   verticalMaxAngle: 50
   cameraZoomSpeed: 1
-  cameraZoomLevels: []
+  cameraZoomLevels:
+  - 3
+  - 7
+  - 15
   smoothFactor: 0.5
 --- !u!1 &2359356347130414727
 GameObject:
