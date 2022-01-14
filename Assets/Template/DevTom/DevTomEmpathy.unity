@@ -328,6 +328,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9127538196297399384, guid: ba116607192c4e94b975849075f4948a, type: 3}
   m_PrefabInstance: {fileID: 49259260}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &104695005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 104695006}
+  m_Layer: 0
+  m_Name: End (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &104695006
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104695005}
+  m_LocalRotation: {x: 0.21635224, y: 0.37937889, z: -0.09787368, w: 0.89425063}
+  m_LocalPosition: {x: -25.332975, y: 322.88272, z: 1.9102969}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 856796845}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 19.244, y: -206.993, z: 0}
 --- !u!1001 &215710039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1127,6 +1158,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 9127538196297399384, guid: ba116607192c4e94b975849075f4948a, type: 3}
   m_PrefabInstance: {fileID: 1317971333}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &856796845 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5762895763151766161, guid: 444ee98097662c54ebbe583c7790a2c8, type: 3}
+  m_PrefabInstance: {fileID: 5840540933828254479}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &861331307 stripped
 Transform:
@@ -3126,6 +3162,22 @@ PrefabInstance:
       propertyPath: lockCamera
       value: 
       objectReference: {fileID: 2029085155}
+    - target: {fileID: 6012221063169722386, guid: 444ee98097662c54ebbe583c7790a2c8, type: 3}
+      propertyPath: travelPath.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6012221063169722386, guid: 444ee98097662c54ebbe583c7790a2c8, type: 3}
+      propertyPath: travelPath.Array.data[2].pos
+      value: 
+      objectReference: {fileID: 104695005}
+    - target: {fileID: 6012221063169722386, guid: 444ee98097662c54ebbe583c7790a2c8, type: 3}
+      propertyPath: travelPath.Array.data[1].time
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6012221063169722386, guid: 444ee98097662c54ebbe583c7790a2c8, type: 3}
+      propertyPath: travelPath.Array.data[2].time
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6941784097357575377, guid: 444ee98097662c54ebbe583c7790a2c8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 430.4
