@@ -5,6 +5,7 @@ using UnityEngine;
 public class PnjBehaviour : MonoBehaviour
 {
     [SerializeField] Monolog dialog;
+    [SerializeField] AudioClip interactionClip;
     [SerializeField] Interactable interactable;
 
     // Start is called before the first frame update
@@ -16,7 +17,11 @@ public class PnjBehaviour : MonoBehaviour
 
     protected virtual void Talk()
     {
-        Debug.Log("Pnj");
+        //Debug.Log("Pnj");
         DialogManager.instance.StartDialog(dialog);
+        if (interactionClip)
+        {
+            SoundManager.instance.PlayClip(interactionClip);
+        }
     }
 }

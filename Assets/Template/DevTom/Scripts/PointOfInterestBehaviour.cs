@@ -27,7 +27,7 @@ public class PointOfInterestBehaviour : MonoBehaviour
         if (interactable != null)
             interactable.AddAction(CameraCinematic);
         else
-            Debug.LogError("No interactable set to " + this.name);
+            Debug.LogError("No interactable set to " + gameObject.name);
         mainCamera = Camera.main;
 }
 
@@ -43,7 +43,7 @@ public class PointOfInterestBehaviour : MonoBehaviour
             rotationBuffer = camera.transform.rotation;
             camera.transform.position = travelPath[0].pos.transform.position;
             camera.transform.rotation = travelPath[0].pos.transform.rotation;
-            Debug.Log("start");
+            //Debug.Log("start");
             StartCoroutine(MoveCamera());
         }
         else
@@ -65,7 +65,7 @@ public class PointOfInterestBehaviour : MonoBehaviour
         {
             camera.transform.position = Vector3.Lerp(prev.pos.transform.position, next.pos.transform.position, timer / next.time);
             camera.transform.rotation = Quaternion.Lerp(prev.pos.transform.rotation, next.pos.transform.rotation, timer / next.time);
-            Debug.Log("top");
+            //Debug.Log("top");
             timer += timeStep;
             if(timer >= next.time)
             {
@@ -88,7 +88,7 @@ public class PointOfInterestBehaviour : MonoBehaviour
 
     void ResetCamera()
     {
-        Debug.Log("stop");
+        //Debug.Log("stop");
         camera.transform.position = posBuffer;
         camera.transform.rotation = rotationBuffer;
         camera.gameObject.SetActive(false);
