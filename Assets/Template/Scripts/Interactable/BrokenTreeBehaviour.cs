@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.Events;
 using TMPro;
 
 public class BrokenTreeBehaviour : MonoBehaviour
@@ -11,7 +11,8 @@ public class BrokenTreeBehaviour : MonoBehaviour
     [SerializeField] Interactable interactionListener;
 
     private bool isHealed = false;
-    private bool canBeHealed = false;
+
+    public UnityEvent onHeal;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class BrokenTreeBehaviour : MonoBehaviour
         leaves.gameObject.SetActive(true);
         isHealed = true;
         interactionListener.SetIsInteractable(false);
+        onHeal.Invoke();
     }
 
     public bool HasBeenHealed()

@@ -1,47 +1,33 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject PMenu;
+    [SerializeField] GameObject pauseMenuPanel;
+    [SerializeField] GameObject firstSelectedButton;
 
-    private bool _isShow;
     // Start is called before the first frame update
     void Start()
     {
-        PMenu.SetActive(false);
-        _isShow = false;
+        pauseMenuPanel.SetActive(false);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 
     public void OnShowHide()
     {
-        
-        if (_isShow == false)
+        pauseMenuPanel.SetActive(!pauseMenuPanel.activeSelf);
+        if (pauseMenuPanel.activeSelf)
         {
-            _isShow = true;
-            print("affiché");
-            PMenu.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(firstSelectedButton);
             GameManager.instance.Pause();
         }
         else
         {
-            _isShow = false;
-
-            print("caché");
-            PMenu.SetActive(false);
             GameManager.instance.Resume();
         }
     }
 
     public void Quit()
     {
-        print("QUIT");
         Application.Quit();
     }
 }

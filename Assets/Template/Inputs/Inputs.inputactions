@@ -497,6 +497,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "SalonIndieGameLyon",
+            "id": "2162e6f0-153d-4a7b-8006-6dc8ff3b2502",
+            "actions": [
+                {
+                    "name": "Reload",
+                    "type": "Button",
+                    "id": "048aa7eb-607e-4da8-be9a-b0b3889a9957",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1e84fb50-a9f6-4733-bc96-26d404a8ef4f",
+                    "path": "<Keyboard>/backspace",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

@@ -14,48 +14,42 @@ public class HealingTreesQuest : Quest
         brokenTrees = FindObjectsOfType<BrokenTreeBehaviour>();
     }
 
-    void Update()
+    void UpdateQuestState()
     {
-        if (DialogManager.instance.GetLastBubble() != null && DialogManager.instance.GetLastBubble().Equals(acceptedQuestEndDialog) && (state == QuestState.Unknown || state == QuestState.Unaccepted))
+        bool treesHaveBeenHealed = true;
+        foreach(BrokenTreeBehaviour brokenTree in brokenTrees)
         {
-            StartQuest();
+            if (!brokenTree.HasBeenHealed())
+            {
+                treesHaveBeenHealed = false;
+                break;
+            }
+        }
+        if (treesHaveBeenHealed)
+        {
+            EndQuest();
         }
     }
 
-    IEnumerator UpdateQuestState()
+    public void StartQuest()
     {
-        while (true)
-        {
-            bool treesHaveBeenHealed = true;
-            foreach(BrokenTreeBehaviour brokenTree in brokenTrees)
-            {
-                if (!brokenTree.HasBeenHealed())
-                {
-                    treesHaveBeenHealed = false;
-                    break;
-                }
-            }
-            if (treesHaveBeenHealed)
-            {
-                EndQuest();
-            }
-            yield return new WaitForSeconds(1);
-        }
-    }
-
-    public override void StartQuest()
-    {
-        base.StartQuest();
+        SetProgress(QuestState.Started);
         foreach(BrokenTreeBehaviour brokenTree in brokenTrees)
         {
             brokenTree.SetCanBeHealed(true);
+            brokenTree.onHeal.AddListener(UpdateQuestState);
         }
-        StartCoroutine("UpdateQuestState");
     }
 
-    public override void EndQuest()
+    public void EndQuest()
     {
-        state = QuestState.Completed;
-        StopCoroutine("UpdateQuestState");
+        SetProgress(QuestState.Completed);
+    }
+    
+    public void StartQuestOnDialog(BubbleSpeech shownBubble)
+    {
+        if (shownBubble.Equals(acceptedQuestEndDialog)){
+            StartQuest();
+        }
     }
 }

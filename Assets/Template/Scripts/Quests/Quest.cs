@@ -18,11 +18,4 @@ public abstract class Quest : MonoBehaviour
     {
         state = newState;
     }
-
-    public virtual void StartQuest()
-    {
-        state = QuestState.Started;
-    }
-
-    public abstract void EndQuest();
 }

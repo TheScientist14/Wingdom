@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,12 +25,6 @@ public class GameManager : MonoBehaviour
         inputs = FindObjectsOfType<PlayerInput>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Pause()
     {
         Time.timeScale = 0;
@@ -46,5 +41,10 @@ public class GameManager : MonoBehaviour
         {
             input.enabled = enabled;
         }
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

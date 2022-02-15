@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using TMPro;
 
 public class DialogManager : MonoBehaviour
@@ -16,6 +18,10 @@ public class DialogManager : MonoBehaviour
 
     private BubbleSpeech currentBubble;
     private BubbleSpeech lastBubble;
+
+    [System.Serializable]
+    public class OnBubbleShown : UnityEvent<BubbleSpeech> { };
+    public OnBubbleShown onBubbleShown;
 
     public static DialogManager instance;
 
@@ -102,10 +108,12 @@ public class DialogManager : MonoBehaviour
         }
         else
         {
+            EventSystem.current.SetSelectedGameObject(nextButton);
             text.text = currentBubble.text;
             speakerIcon.sprite = currentBubble.speaker.icon;
             // speaker name
         }
+        onBubbleShown.Invoke(currentBubble);
     }
 
     private void displayAnswers()
@@ -120,6 +128,7 @@ public class DialogManager : MonoBehaviour
             answerButtons[i].SetActive(true);
             answersText[i].text = answers[i].text;
         }
+        EventSystem.current.SetSelectedGameObject(answerButtons[0]);
     }
 
     public BubbleSpeech GetLastBubble()
