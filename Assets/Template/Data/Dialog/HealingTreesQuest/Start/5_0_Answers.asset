@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 447b1a49fba492447bc3cb6a1876c26f, type: 3}
-  m_Name: 2_0_Answers
+  m_Name: 5_0_Answers
   m_EditorClassIdentifier: 
   text: 
   speaker: {fileID: 0}
   nextBubble: {fileID: 0}
   answers:
-  - {fileID: 11400000, guid: 04892f28e51291141b2772fe53018584, type: 2}
+  - {fileID: 11400000, guid: a8e7263f6e7a741438541f8daba2b151, type: 2}
+  - {fileID: 11400000, guid: 9e2eb1daba43fb742a6bbc97660b8023, type: 2}

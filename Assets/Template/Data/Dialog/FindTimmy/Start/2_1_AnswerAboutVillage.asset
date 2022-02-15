@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 510c0b9f6f12fc44da02ecc91cbe544f, type: 3}
-  m_Name: 3_2_Answer
+  m_Name: 2_1_AnswerAboutVillage
   m_EditorClassIdentifier: 
-  text: I am Ulfric, nice to meet you!
-  speaker: {fileID: 0}
-  nextBubble: {fileID: 11400000, guid: 9177be47a17a1db469f2e3a01380008a, type: 2}
+  text: Tell me more about the village.
+  speaker: {fileID: 11400000, guid: fd5f31b9ff0a7e04eaa66e14a83adc5b, type: 2}
+  nextBubble: {fileID: 11400000, guid: dba535e19c35af94dad912d71f17f203, type: 2}
   pnjEmpathyImpacts: []

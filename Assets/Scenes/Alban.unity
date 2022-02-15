@@ -276,6 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialog: {fileID: 0}
+  interactionClip: {fileID: 0}
   interactable: {fileID: 0}
   quest: {fileID: 214139871}
   startingQuestDialog: {fileID: 11400000, guid: cf02ccb13f4a3554fbdbf4fda84d50a0, type: 2}
@@ -1050,7 +1051,7 @@ PrefabInstance:
     - target: {fileID: 6758855293889250763, guid: 51e0cc2b9764dda41824356392a68085, type: 3}
       propertyPath: dialog
       value: 
-      objectReference: {fileID: 11400000, guid: 6cf520fe96f094b409675e40442f3bff, type: 2}
+      objectReference: {fileID: 11400000, guid: 135c071858dfd40459a7f4a8890cb40a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51e0cc2b9764dda41824356392a68085, type: 3}
 --- !u!1001 &1562253211

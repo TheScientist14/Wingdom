@@ -10,8 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc458440f8ba0fe40a4624a78e02ea7b, type: 3}
-  m_Name: 1_0_Welcome
+  m_Name: 3_2_IslandStory
   m_EditorClassIdentifier: 
-  text: "Hey hey hey, hello there.\r\nI have never seen your face in this town\r!"
+  text: 'Sure, and what a story !
+
+    Here we Honor Vanias, the deity of Forest.
+
+    She
+    takes care of us, and in return we take care of nature. All we take to her, we
+    give it back the other way.
+
+    Please respect nature during your visit.'
   speaker: {fileID: 11400000, guid: 0a44a84297d00b84b9bf6d6fc5f9d642, type: 2}
-  nextBubble: {fileID: 11400000, guid: d5042e0b3a136944e8e3123c3dba7899, type: 2}
+  nextBubble: {fileID: 11400000, guid: f8c5833b49bf1434886d896010ee583d, type: 2}

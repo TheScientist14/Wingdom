@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc458440f8ba0fe40a4624a78e02ea7b, type: 3}
+  m_Name: 3_1_AboutVillage
+  m_EditorClassIdentifier: 
+  text: "This village has been created in honor of Vanias, the deity of Forest.\nKing
+    Ramzou decided to transform the majority of the village into cute little fairy
+    for some reasons only him knows.\nBut don\u2019t worry, we live perfectly together,
+    it is not a big problem at the moment, and I am actively working to undo the
+    fate !\r"
+  speaker: {fileID: 11400000, guid: 0a44a84297d00b84b9bf6d6fc5f9d642, type: 2}
+  nextBubble: {fileID: 11400000, guid: f8c5833b49bf1434886d896010ee583d, type: 2}

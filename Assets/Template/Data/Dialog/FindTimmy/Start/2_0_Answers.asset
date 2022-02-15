@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 447b1a49fba492447bc3cb6a1876c26f, type: 3}
-  m_Name: 2_0Answers
+  m_Name: 2_0_Answers
   m_EditorClassIdentifier: 
   text: 
   speaker: {fileID: 0}
   nextBubble: {fileID: 0}
   answers:
-  - {fileID: 11400000, guid: ea5498dd4cbca184aafac569190075bb, type: 2}
-  - {fileID: 11400000, guid: 6a367b49c9ab49245a66686d68250ca2, type: 2}
-  - {fileID: 11400000, guid: 8d58f52a7c3d3ee4285acc4659f065f4, type: 2}
+  - {fileID: 11400000, guid: 9c7db9b62ffe6e342851b9e6e20dd151, type: 2}
+  - {fileID: 11400000, guid: 1639d5e9371841c45a23d72577c2fba1, type: 2}
+  - {fileID: 11400000, guid: bf5d5ff55b7223d4eb184de20add3aff, type: 2}
