@@ -11,7 +11,6 @@ public class SimpleQuest : Quest
     void Start()
     {
         DialogManager.instance.onBubbleShown.AddListener(StartQuestOnSpeech);
-        targetInteractable.AddAction(EndQuest);
     }
 
     void StartQuestOnSpeech(BubbleSpeech shownBubble)
@@ -20,6 +19,7 @@ public class SimpleQuest : Quest
         {
             SetProgress(QuestState.Started);
             DialogManager.instance.onBubbleShown.RemoveListener(StartQuestOnSpeech);
+            targetInteractable.AddAction(EndQuest);
         }
     }
 
