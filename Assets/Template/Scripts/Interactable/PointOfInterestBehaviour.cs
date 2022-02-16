@@ -24,16 +24,24 @@ public class PointOfInterestBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(travelPath.Length >= 1)
+        {
+            travelPath[0].time = 0;
+        }
         if (interactable != null)
+        {
             interactable.AddAction(CameraCinematic);
+        }
         else
+        {
             Debug.LogError("No interactable set to " + gameObject.name);
+        }
         mainCamera = Camera.main;
-}
+    }
 
-    // Update is called once per frame
-    void CameraCinematic()
+    public void CameraCinematic()
     {
+        StopCinematic();
         if(travelPath.Length >= 2)
         {
             GameManager.instance.SetInputsActive(false);
@@ -52,6 +60,12 @@ public class PointOfInterestBehaviour : MonoBehaviour
         }
     }
 
+    public void StopCinematic()
+    {
+        StopCoroutine(MoveCamera());
+        ResetCamera();
+    }
+
     IEnumerator MoveCamera()
     {
         bool run = true;
@@ -65,7 +79,7 @@ public class PointOfInterestBehaviour : MonoBehaviour
         {
             camera.transform.position = Vector3.Lerp(prev.pos.transform.position, next.pos.transform.position, timer / next.time);
             camera.transform.rotation = Quaternion.Lerp(prev.pos.transform.rotation, next.pos.transform.rotation, timer / next.time);
-            //Debug.Log("top");
+            Debug.Log("top");
             timer += timeStep;
             if(timer >= next.time)
             {
@@ -88,11 +102,20 @@ public class PointOfInterestBehaviour : MonoBehaviour
 
     void ResetCamera()
     {
-        //Debug.Log("stop");
         camera.transform.position = posBuffer;
         camera.transform.rotation = rotationBuffer;
         camera.gameObject.SetActive(false);
         mainCamera.gameObject.SetActive(true);
         GameManager.instance.SetInputsActive(true);
+    }
+
+    public float GetLength()
+    {
+        float length = 0;
+        foreach(TimedPos timedPos in travelPath)
+        {
+            length += timedPos.time;
+        }
+        return length;
     }
 }
