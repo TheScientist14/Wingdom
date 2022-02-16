@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class VaniasQuestBehaviour : PnjBehaviour
+public class VaniasQuestBehaviour : MonoBehaviour
 {
     [SerializeField] Quest quest;
     [SerializeField] BubbleSpeech startingQuestDialog;
@@ -18,7 +18,7 @@ public class VaniasQuestBehaviour : PnjBehaviour
         Talk();
     }
 
-    protected override void Talk()
+    protected void Talk()
     {
         switch (quest.getProgress())
         {

@@ -12,6 +12,10 @@ public class HealingTreesQuest : Quest
     void Start()
     {
         brokenTrees = FindObjectsOfType<BrokenTreeBehaviour>();
+        foreach (BrokenTreeBehaviour brokenTree in brokenTrees)
+        {
+            brokenTree.onHeal.AddListener(UpdateQuestState);
+        }
     }
 
     void UpdateQuestState()
@@ -50,6 +54,7 @@ public class HealingTreesQuest : Quest
     {
         if (shownBubble.Equals(acceptedQuestEndDialog)){
             StartQuest();
+            DialogManager.instance.onBubbleShown.RemoveListener(StartQuestOnDialog);
         }
     }
 }
