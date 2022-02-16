@@ -11,7 +11,7 @@ public class LockCamera : MonoBehaviour
     [SerializeField] float cameraVerticalRotationSpeed = 5;
     [SerializeField] float verticalMinAngle = 20;
     [SerializeField] float verticalMaxAngle = 50;
-    [SerializeField] float cameraZoomSpeed = 1;
+    //[SerializeField] float cameraZoomSpeed = 1;
     [SerializeField] float[] cameraZoomLevels;
     //[SerializeField] float smoothFactorCameraRotationSpeed;
     private Vector2 inputValueRotation = Vector2.zero;

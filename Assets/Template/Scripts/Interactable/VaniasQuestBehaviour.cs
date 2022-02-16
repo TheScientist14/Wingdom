@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PnjQuestBehaviour : PnjBehaviour
+public class VaniasQuestBehaviour : PnjBehaviour
 {
     [SerializeField] Quest quest;
     [SerializeField] BubbleSpeech startingQuestDialog;
