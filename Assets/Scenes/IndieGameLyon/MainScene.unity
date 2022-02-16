@@ -1100,11 +1100,11 @@ PrefabInstance:
     - target: {fileID: 4980388232931091922, guid: 51e0cc2b9764dda41824356392a68085, type: 3}
       propertyPath: questsBubbles.Array.data[0].completedSpeech
       value: 
-      objectReference: {fileID: 11400000, guid: da42c5a0e80de4b4895f62be80777ef4, type: 2}
+      objectReference: {fileID: 11400000, guid: 9eccabdf1bba2c6499507d3f71d94c3d, type: 2}
     - target: {fileID: 4980388232931091922, guid: 51e0cc2b9764dda41824356392a68085, type: 3}
       propertyPath: questsBubbles.Array.data[0].inProgressSpeech
       value: 
-      objectReference: {fileID: 11400000, guid: c6ea459dd1b9d0242aeb32b78d6f8819, type: 2}
+      objectReference: {fileID: 11400000, guid: fb591c4dfbdc826438fd15eb257caa24, type: 2}
     - target: {fileID: 6758855293889250760, guid: 51e0cc2b9764dda41824356392a68085, type: 3}
       propertyPath: m_RootOrder
       value: 3

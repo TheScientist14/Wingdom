@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc458440f8ba0fe40a4624a78e02ea7b, type: 3}
+  m_Name: 8_0_ItsHard
+  m_EditorClassIdentifier: 
+  text: "I admit it's hard sometimes.\nBut I\u2019ve never lived with anybody. I
+    did talk with people when I had to, but that\u2019s all.\r\nI don\u2019t know
+    how to act and I\u2019m scared of what people may think of me if they see how
+    I live, how I am a dirty man.. I don\u2019t have to pay attention to these details
+    here.\r"
+  speaker: {fileID: 11400000, guid: d0f75652bb2d58f478e9248f93fd8f80, type: 2}
+  nextBubble: {fileID: 11400000, guid: 323f474ca407c544c8e5d5e1cdc0cfb6, type: 2}

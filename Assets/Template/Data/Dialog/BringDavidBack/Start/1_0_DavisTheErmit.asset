@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc458440f8ba0fe40a4624a78e02ea7b, type: 3}
+  m_Name: 1_0_DavisTheErmit
+  m_EditorClassIdentifier: 
+  text: "Of course ! Actually if you want to help us, there is a hermit near the
+    river that refuses to come live with us.\r\nWe know him really well and we all
+    appreciate him, but he keeps living on his own. \r\nThat was not a problem when
+    he was human, but now with this fairy appearance, it must be pretty hard to live
+    for him. \r\nCan you try to reason with him please ?\r"
+  speaker: {fileID: 11400000, guid: 0a44a84297d00b84b9bf6d6fc5f9d642, type: 2}
+  nextBubble: {fileID: 11400000, guid: 6a29822b5a870d447acbb5717aeb1c63, type: 2}
