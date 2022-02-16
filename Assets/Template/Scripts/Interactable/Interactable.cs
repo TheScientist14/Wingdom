@@ -27,15 +27,25 @@ public class Interactable : MonoBehaviour
     void Start()
     {
         camera = Camera.main;
-        canvas.transform.rotation = camera.transform.rotation;
-        controlHint.gameObject.SetActive(false);
+        if (canvas && controlHint)
+        {
+            canvas.transform.rotation = camera.transform.rotation;
+            controlHint.gameObject.SetActive(false);
+        }
+        else
+        {
+            Debug.LogWarning("No hint control set to " + name);
+        }
     }
 
     void Update()
     {
         if (updateUiRotation)
         {
-            canvas.transform.rotation = camera.transform.rotation;
+            if (canvas)
+            {
+                canvas.transform.rotation = camera.transform.rotation;
+            }
         }
     }
 
@@ -73,12 +83,18 @@ public class Interactable : MonoBehaviour
         if (canBeInteractable)
         {
             isInRange = isInteractable;
-            controlHint.gameObject.SetActive(isInteractable);
+            if (controlHint)
+            {
+                controlHint.gameObject.SetActive(isInteractable);
+            }
         }
         else
         {
             isInRange = false;
-            controlHint.gameObject.SetActive(false);
+            if (controlHint)
+            {
+                controlHint.gameObject.SetActive(false);
+            }
         }
     }
 
@@ -90,6 +106,11 @@ public class Interactable : MonoBehaviour
     public void AddAction(UnityAction unityAction)
     {
         listeners.Add(unityAction);
+    }
+
+    public void RemoveAction(UnityAction unityAction)
+    {
+        listeners.Remove(unityAction);
     }
 
     private void Invoke()

@@ -30,4 +30,10 @@ public class PauseMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    // demo
+    public void Restart()
+    {
+        GameManager.instance.Restart();
+    }
 }
