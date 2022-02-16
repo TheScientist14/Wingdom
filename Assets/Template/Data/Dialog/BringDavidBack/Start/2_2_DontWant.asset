@@ -12,10 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 510c0b9f6f12fc44da02ecc91cbe544f, type: 3}
   m_Name: 2_2_DontWant
   m_EditorClassIdentifier: 
-  text: 'His choice is to live on his own.
-
-    I respect that and I will not force
-    him to live somewhere he doesn''t want.'
+  text: His choice is to live on his own.
   speaker: {fileID: 11400000, guid: fd5f31b9ff0a7e04eaa66e14a83adc5b, type: 2}
-  nextBubble: {fileID: 11400000, guid: 501b7f3475f652745b42fabaeaa8ae74, type: 2}
+  nextBubble: {fileID: 11400000, guid: 322342a573592e24ca0966259fd7373e, type: 2}
   pnjEmpathyImpacts: []

@@ -17,4 +17,4 @@ MonoBehaviour:
     By the way, do you have something else
     for me to do ?'
   speaker: {fileID: 11400000, guid: fd5f31b9ff0a7e04eaa66e14a83adc5b, type: 2}
-  nextBubble: {fileID: 0}
+  nextBubble: {fileID: 11400000, guid: 039b87189c1d8504894e9acd85ae6642, type: 2}

@@ -97,6 +97,7 @@ public class DialogManager : MonoBehaviour
         }
         lastBubble = currentBubble;
         currentBubble = chosenAnswer;
+        onBubbleShown.Invoke(currentBubble);
         Next();
     }
 
@@ -111,9 +112,9 @@ public class DialogManager : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(nextButton);
             text.text = currentBubble.text;
             speakerIcon.sprite = currentBubble.speaker.icon;
+            onBubbleShown.Invoke(currentBubble);
             // speaker name
         }
-        onBubbleShown.Invoke(currentBubble);
     }
 
     private void displayAnswers()

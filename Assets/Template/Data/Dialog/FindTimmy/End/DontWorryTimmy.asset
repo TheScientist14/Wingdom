@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc458440f8ba0fe40a4624a78e02ea7b, type: 3}
-  m_Name: 3_2_StillWorried
+  m_Name: DontWorryTimmy
   m_EditorClassIdentifier: 
-  text: I am still worried about him, but yeah, maybe we have to respect his decision.
-  speaker: {fileID: 11400000, guid: 0a44a84297d00b84b9bf6d6fc5f9d642, type: 2}
+  text: "Hello Timmy. Don\u2019t worry anymore, the mayor sent me to bring you back
+    to the village.\nFollow me, I will guide you."
+  speaker: {fileID: 11400000, guid: fd5f31b9ff0a7e04eaa66e14a83adc5b, type: 2}
   nextBubble: {fileID: 0}

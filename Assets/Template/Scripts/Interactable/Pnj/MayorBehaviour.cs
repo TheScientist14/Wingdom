@@ -29,8 +29,10 @@ public class MayorBehaviour : MonoBehaviour
 
     void Talk()
     {
+        Debug.Log(iQuest);
         if(iQuest < questsBubbles.Length)
         {
+            Debug.Log(questsBubbles[iQuest].quest.getProgress());
             switch (questsBubbles[iQuest].quest.getProgress())
             {
                 case Quest.QuestState.Unknown:

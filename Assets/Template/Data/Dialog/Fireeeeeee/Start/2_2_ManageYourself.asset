@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 510c0b9f6f12fc44da02ecc91cbe544f, type: 3}
-  m_Name: 4_1_AnswerYes
+  m_Name: 2_2_ManageYourself
   m_EditorClassIdentifier: 
-  text: Sure !
+  text: Timmy needs to fail sometimes.
   speaker: {fileID: 11400000, guid: fd5f31b9ff0a7e04eaa66e14a83adc5b, type: 2}
-  nextBubble: {fileID: 11400000, guid: 312addcc47c7ea84c99b1fd5a070a8d8, type: 2}
+  nextBubble: {fileID: 11400000, guid: 51302b756b62ab745a97f9ac9e6709d3, type: 2}
   pnjEmpathyImpacts: []

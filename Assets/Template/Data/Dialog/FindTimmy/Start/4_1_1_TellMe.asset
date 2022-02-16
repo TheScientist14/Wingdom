@@ -9,15 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 510c0b9f6f12fc44da02ecc91cbe544f, type: 3}
-  m_Name: 2_2_ManageYourself
+  m_Script: {fileID: 11500000, guid: bc458440f8ba0fe40a4624a78e02ea7b, type: 3}
+  m_Name: 4_1_1_TellMe
   m_EditorClassIdentifier: 
-  text: 'Timmy needs to fail sometimes.
-
-    I will not be behind him each time.
-
-    Tell
-    him to manage himself.'
+  text: "It would be a pleasure to help.\nQuick, tell me where to search !\r"
   speaker: {fileID: 11400000, guid: fd5f31b9ff0a7e04eaa66e14a83adc5b, type: 2}
-  nextBubble: {fileID: 0}
-  pnjEmpathyImpacts: []
+  nextBubble: {fileID: 11400000, guid: da42c5a0e80de4b4895f62be80777ef4, type: 2}

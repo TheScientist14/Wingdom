@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 510c0b9f6f12fc44da02ecc91cbe544f, type: 3}
   m_Name: 4_2_AnswerNo
   m_EditorClassIdentifier: 
-  text: "No way, I am busy at the moment with\u2026\nYou don\u2019t have to know.\nManage
-    by yourself, it is your village."
+  text: No way.
   speaker: {fileID: 11400000, guid: fd5f31b9ff0a7e04eaa66e14a83adc5b, type: 2}
-  nextBubble: {fileID: 11400000, guid: c6ea459dd1b9d0242aeb32b78d6f8819, type: 2}
+  nextBubble: {fileID: 11400000, guid: 2ea38d1e597d19248a81d2eef5d63b1e, type: 2}
   pnjEmpathyImpacts: []
