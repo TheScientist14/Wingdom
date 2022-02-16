@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc458440f8ba0fe40a4624a78e02ea7b, type: 3}
+  m_Name: PhilibertDialog
+  m_EditorClassIdentifier: 
+  text: "I advised him to stay near the path.\nI don\u2019t think he went far."
+  speaker: {fileID: 11400000, guid: 135b24a90a9cc9c43bfe5f46d496671d, type: 2}
+  nextBubble: {fileID: 0}
