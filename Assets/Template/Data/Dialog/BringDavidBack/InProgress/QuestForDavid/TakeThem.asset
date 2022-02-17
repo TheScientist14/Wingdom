@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: Here are you apples, take them.
   speaker: {fileID: 11400000, guid: fd5f31b9ff0a7e04eaa66e14a83adc5b, type: 2}
-  nextBubble: {fileID: 0}
+  nextBubble: {fileID: 11400000, guid: 36ccbf508a89f284199e5959e0954ba7, type: 2}

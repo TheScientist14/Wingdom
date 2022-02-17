@@ -12,15 +12,15 @@ public class HermitSubquest : Quest
     void Awake()
     {
         applesBasketInteractable = applesBasket.GetComponent<Interactable>();
-        if (applesBasketInteractable)
-        {
-            applesBasketInteractable.AddAction(CompleteQuest);
-        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        if (applesBasketInteractable)
+        {
+            applesBasketInteractable.AddAction(CompleteQuest);
+        }
         applesBasket.SetActive(false);
         DialogManager.instance.onBubbleShown.AddListener(StartSubquestOnSpeech);
     }

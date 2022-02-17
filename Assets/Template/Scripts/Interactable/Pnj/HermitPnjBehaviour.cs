@@ -57,10 +57,9 @@ public class HermitPnjBehaviour : MonoBehaviour
         Invoke(nameof(Teleport), 5);
     }
 
-    IEnumerator Teleport()
+    void Teleport()
     {
         transform.position = successTransform.position;
         transform.rotation = successTransform.rotation;
-        yield return null;
     }
 }

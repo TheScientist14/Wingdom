@@ -8,11 +8,16 @@ public class FireQuest : Quest
 
     private FireBehaviour[] fires;
 
+    void Awake()
+    {
+        fires = FindObjectsOfType<FireBehaviour>();
+        Debug.Log(fires.Length);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         DialogManager.instance.onBubbleShown.AddListener(StartQuestOnDialog);
-        fires = FindObjectsOfType<FireBehaviour>();
     }
 
     // Update is called once per frame
@@ -21,6 +26,7 @@ public class FireQuest : Quest
         bool firesHaveBeenKilled = true;
         foreach (FireBehaviour fire in fires)
         {
+            Debug.Log(fire.gameObject.name);
             if (fire.IsAlive())
             {
                 firesHaveBeenKilled = false;
@@ -38,11 +44,14 @@ public class FireQuest : Quest
         if (shownSpeech.Equals(startSpeech))
         {
             SetProgress(QuestState.Started);
-            DialogManager.instance.onBubbleShown.RemoveListener(StartQuestOnDialog);
+            Debug.Log("Starting quest");
             foreach (FireBehaviour fire in fires)
             {
                 fire.onFireKilled.AddListener(UpdateQuestState);
+                fire.interactable.SetIsInteractable(true);
+                Debug.Log("Listening " + fire.gameObject.name);
             }
+            DialogManager.instance.onBubbleShown.RemoveListener(StartQuestOnDialog);
         }
     }
 }

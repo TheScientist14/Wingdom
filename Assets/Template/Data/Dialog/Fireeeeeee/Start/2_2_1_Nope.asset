@@ -15,5 +15,5 @@ MonoBehaviour:
   text: 'I will not be behind him each time.
 
     Tell him to manage himself.'
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: fd5f31b9ff0a7e04eaa66e14a83adc5b, type: 2}
   nextBubble: {fileID: 0}

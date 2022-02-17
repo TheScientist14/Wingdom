@@ -24,6 +24,7 @@ public class HermitQuest : Quest
         }
         if(shownSpeech.Equals(success1QuestSpeech) || shownSpeech.Equals(success2QuestSpeech))
         {
+            Debug.Log("success hermit");
             SetProgress(QuestState.Completed);
             hermitBehaviour.OnQuestSuccess();
         }

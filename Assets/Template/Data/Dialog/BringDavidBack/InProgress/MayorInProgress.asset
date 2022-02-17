@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc458440f8ba0fe40a4624a78e02ea7b, type: 3}
   m_Name: MayorInProgress
   m_EditorClassIdentifier: 
-  text: Did you to David the ermit ?
+  text: Did you talk to David the ermit ?
   speaker: {fileID: 11400000, guid: 0a44a84297d00b84b9bf6d6fc5f9d642, type: 2}
   nextBubble: {fileID: 0}

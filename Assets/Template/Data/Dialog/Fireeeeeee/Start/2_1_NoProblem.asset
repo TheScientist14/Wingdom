@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: No problem, I will do it !
   speaker: {fileID: 11400000, guid: fd5f31b9ff0a7e04eaa66e14a83adc5b, type: 2}
-  nextBubble: {fileID: 11400000, guid: 4b48482917d012942a72d831ce5f121a, type: 2}
+  nextBubble: {fileID: 0}
   pnjEmpathyImpacts: []

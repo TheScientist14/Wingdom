@@ -21,12 +21,12 @@ public class Interactable : MonoBehaviour
     void Awake()
     {
         listeners = new ArrayList();
+        camera = Camera.main;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        camera = Camera.main;
         if (canvas && controlHint)
         {
             canvas.transform.rotation = camera.transform.rotation;

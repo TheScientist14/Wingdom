@@ -16,5 +16,5 @@ MonoBehaviour:
     and I think that they just want you to be safe.\nNo matter your education, I
     think they will accept you anyway.\r"
   speaker: {fileID: 11400000, guid: fd5f31b9ff0a7e04eaa66e14a83adc5b, type: 2}
-  nextBubble: {fileID: 0}
+  nextBubble: {fileID: 11400000, guid: 5210101dd286d8b4caf8437026129dd3, type: 2}
   pnjEmpathyImpacts: []
