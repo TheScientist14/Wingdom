@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class DemoGameManager : GameManager
 {
-    private float noInputTimeBeforeSleep = 10;
+    private float noInputTimeBeforeSleep = 60;
     private float noInputCooldown = 0;
     private Vector3 lastMousePos = Vector3.zero;
     private bool hasEverMoved = false;
@@ -17,11 +17,10 @@ public class DemoGameManager : GameManager
             if (Input.anyKey || lastMousePos != Input.mousePosition)
             {
                 noInputCooldown = 0;
-                //hasEverMoved = true;
+                hasEverMoved = true;
             }
             else
             {
-                Debug.Log("sleeping");
                 noInputCooldown += Time.deltaTime;
             }
             if(noInputCooldown >= noInputTimeBeforeSleep)
@@ -47,11 +46,9 @@ public class DemoGameManager : GameManager
             }
             else
             {
-                Debug.Log("cinematic");
                 noInputCooldown += Time.deltaTime;
-                if(noInputCooldown >= cinematicDuration)
+                if(noInputCooldown >= cinematicDuration + 0.1f)
                 {
-                    StopCinematic();
                     StartCinematic();
                 }
             }
@@ -83,7 +80,7 @@ public class DemoGameManager : GameManager
         GameObject poi = GameObject.FindGameObjectWithTag("Cinematic");
         if (poi && poi.GetComponent<PointOfInterestBehaviour>())
         {
-            poi.GetComponent<PointOfInterestBehaviour>().StopCinematic();
+            poi.GetComponent<PointOfInterestBehaviour>().ResetCamera();
         }
     }
 }

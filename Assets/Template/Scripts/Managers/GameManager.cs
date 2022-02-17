@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    private PlayerInput[] inputs;
 
     private void Awake()
     {
@@ -22,7 +21,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        inputs = FindObjectsOfType<PlayerInput>();
     }
 
     public void Pause()
@@ -37,6 +35,7 @@ public class GameManager : MonoBehaviour
 
     public void SetInputsActive(bool enabled)
     {
+        PlayerInput[] inputs = FindObjectsOfType<PlayerInput>();
         foreach (PlayerInput input in inputs)
         {
             input.enabled = enabled;

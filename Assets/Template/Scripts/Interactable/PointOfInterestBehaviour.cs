@@ -19,7 +19,7 @@ public class PointOfInterestBehaviour : MonoBehaviour
 
     private Vector3 posBuffer;
     private Quaternion rotationBuffer;
-    //private float totalWeight = 0;
+    private bool isPlaying = false;
 
     // Start is called before the first frame update
     void Start()
@@ -34,14 +34,17 @@ public class PointOfInterestBehaviour : MonoBehaviour
         }
         else
         {
-            Debug.LogError("No interactable set to " + gameObject.name);
+            Debug.LogWarning("No interactable set to " + gameObject.name);
         }
         mainCamera = Camera.main;
     }
 
     public void CameraCinematic()
     {
-        StopCinematic();
+        if (isPlaying)
+        {
+            ResetCamera();
+        }
         if(travelPath.Length >= 2)
         {
             GameManager.instance.SetInputsActive(false);
@@ -51,7 +54,7 @@ public class PointOfInterestBehaviour : MonoBehaviour
             rotationBuffer = camera.transform.rotation;
             camera.transform.position = travelPath[0].pos.transform.position;
             camera.transform.rotation = travelPath[0].pos.transform.rotation;
-            //Debug.Log("start");
+            isPlaying = true;
             StartCoroutine(MoveCamera());
         }
         else
@@ -60,18 +63,11 @@ public class PointOfInterestBehaviour : MonoBehaviour
         }
     }
 
-    public void StopCinematic()
-    {
-        StopCoroutine(MoveCamera());
-        ResetCamera();
-    }
-
     IEnumerator MoveCamera()
     {
         bool run = true;
         float timer = 0;
         int iPos = 0;
-        float timeStep = 0.02f;
         TimedPos prev = travelPath[0];
         TimedPos next;
         next = travelPath[1];
@@ -79,8 +75,7 @@ public class PointOfInterestBehaviour : MonoBehaviour
         {
             camera.transform.position = Vector3.Lerp(prev.pos.transform.position, next.pos.transform.position, timer / next.time);
             camera.transform.rotation = Quaternion.Lerp(prev.pos.transform.rotation, next.pos.transform.rotation, timer / next.time);
-            Debug.Log("top");
-            timer += timeStep;
+            timer += Time.fixedDeltaTime;
             if(timer >= next.time)
             {
                 prev = next;
@@ -95,13 +90,15 @@ public class PointOfInterestBehaviour : MonoBehaviour
                     run = false;
                 }
             }
-            yield return new WaitForSeconds(timeStep);
+            yield return new WaitForFixedUpdate();
         }
         ResetCamera();
     }
 
-    void ResetCamera()
+    public void ResetCamera()
     {
+        StopCoroutine(MoveCamera());
+        isPlaying = false;
         camera.transform.position = posBuffer;
         camera.transform.rotation = rotationBuffer;
         camera.gameObject.SetActive(false);

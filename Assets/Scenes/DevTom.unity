@@ -265,6 +265,11 @@ Transform:
   m_Father: {fileID: 856796845}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 19.244, y: -206.993, z: 0}
+--- !u!1 &525747917 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5736011893942919454, guid: 0d4188b8efbcaae40b22cdcf94209058, type: 3}
+  m_PrefabInstance: {fileID: 1604252379}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &602460712
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,6 +478,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5762895763151766161, guid: 444ee98097662c54ebbe583c7790a2c8, type: 3}
   m_PrefabInstance: {fileID: 5840540933828254479}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &946548909 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5736011894476173765, guid: 0d4188b8efbcaae40b22cdcf94209058, type: 3}
+  m_PrefabInstance: {fileID: 1604252379}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1180132769
 PrefabInstance:
@@ -733,7 +743,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1328848690}
-  - component: {fileID: 1328848689}
+  - component: {fileID: 1328848691}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -741,18 +751,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
---- !u!114 &1328848689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1328848688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f988ee4318eccc1438f8a18f83c1433d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1328848690
 Transform:
   m_ObjectHideFlags: 0
@@ -768,6 +766,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1328848691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328848688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35ea960e6b1339d40893e3d682477c44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1604252379
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -859,6 +869,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5736011893113539687, guid: 0d4188b8efbcaae40b22cdcf94209058, type: 3}
+      propertyPath: pauseMenuPanel
+      value: 
+      objectReference: {fileID: 946548909}
+    - target: {fileID: 5736011893113539687, guid: 0d4188b8efbcaae40b22cdcf94209058, type: 3}
+      propertyPath: firstSelectedButton
+      value: 
+      objectReference: {fileID: 525747917}
     - target: {fileID: 5736011893113539690, guid: 0d4188b8efbcaae40b22cdcf94209058, type: 3}
       propertyPath: m_Name
       value: PauseMenu

@@ -13,6 +13,7 @@ public class MayorBehaviour : MonoBehaviour
         public Quest quest;
         public BubbleSpeech startingSpeech;
         public BubbleSpeech inProgressSpeech;
+        public BubbleSpeech failedSpeech;
         public BubbleSpeech completedSpeech;
     }
 
@@ -41,6 +42,17 @@ public class MayorBehaviour : MonoBehaviour
                     break;
                 case Quest.QuestState.Started:
                     DialogManager.instance.StartDialog(questsBubbles[iQuest].inProgressSpeech);
+                    break;
+                case Quest.QuestState.Failed:
+                    if (questsBubbles[iQuest].failedSpeech)
+                    {
+                        DialogManager.instance.StartDialog(questsBubbles[iQuest].failedSpeech);
+                    }
+                    else
+                    {
+                        DialogManager.instance.StartDialog(questsBubbles[iQuest].completedSpeech);
+                    }
+                    iQuest++;
                     break;
                 case Quest.QuestState.Completed:
                     DialogManager.instance.StartDialog(questsBubbles[iQuest].completedSpeech);
