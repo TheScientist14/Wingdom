@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc458440f8ba0fe40a4624a78e02ea7b, type: 3}
   m_Name: TakeThem
   m_EditorClassIdentifier: 
-  text: 
-  speaker: {fileID: 0}
+  text: Here are you apples, take them.
+  speaker: {fileID: 11400000, guid: fd5f31b9ff0a7e04eaa66e14a83adc5b, type: 2}
   nextBubble: {fileID: 0}

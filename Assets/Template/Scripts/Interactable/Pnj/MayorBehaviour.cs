@@ -47,22 +47,35 @@ public class MayorBehaviour : MonoBehaviour
                     if (questsBubbles[iQuest].failedSpeech)
                     {
                         DialogManager.instance.StartDialog(questsBubbles[iQuest].failedSpeech);
+                        iQuest++;
                     }
                     else
                     {
-                        DialogManager.instance.StartDialog(questsBubbles[iQuest].completedSpeech);
+                        StartCompletedSpeechCurrentQuest();
                     }
-                    iQuest++;
                     break;
                 case Quest.QuestState.Completed:
-                    DialogManager.instance.StartDialog(questsBubbles[iQuest].completedSpeech);
-                    iQuest++;
+                    StartCompletedSpeechCurrentQuest();
                     break;
             }
         }
         else
         {
             DialogManager.instance.StartDialog(allQuestsCompletedSpeech);
+        }
+    }
+
+    void StartCompletedSpeechCurrentQuest()
+    {
+        if (questsBubbles[iQuest].completedSpeech)
+        {
+            DialogManager.instance.StartDialog(questsBubbles[iQuest].completedSpeech);
+            iQuest++;
+        }
+        else
+        {
+            iQuest++;
+            Talk();
         }
     }
 }

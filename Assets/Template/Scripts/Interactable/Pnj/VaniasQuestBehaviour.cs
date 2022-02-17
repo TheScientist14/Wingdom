@@ -6,8 +6,6 @@ public class VaniasQuestBehaviour : MonoBehaviour
     [SerializeField] BubbleSpeech startingQuestDialog;
     [SerializeField] BubbleSpeech propositionQuestDialog;
     [SerializeField] BubbleSpeech onGoingQuestDialog;
-    [SerializeField] BubbleSpeech failedQuestDialog;
-    [SerializeField] BubbleSpeech failedQuestReminderDialog;
     [SerializeField] BubbleSpeech completedQuestDialog;
     [SerializeField] BubbleSpeech completedQuestReminderDialog;
 
@@ -31,17 +29,6 @@ public class VaniasQuestBehaviour : MonoBehaviour
                 break;
             case Quest.QuestState.Started:
                 DialogManager.instance.StartDialog(onGoingQuestDialog);
-                break;
-            case Quest.QuestState.Failed:
-                if (!endingQuestDialogHasBeenShown)
-                {
-                    DialogManager.instance.StartDialog(failedQuestDialog);
-                    endingQuestDialogHasBeenShown = true;
-                }
-                else
-                {
-                    DialogManager.instance.StartDialog(failedQuestReminderDialog);
-                }
                 break;
             case Quest.QuestState.Completed:
                 if (!endingQuestDialogHasBeenShown)

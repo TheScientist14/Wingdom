@@ -10,13 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc458440f8ba0fe40a4624a78e02ea7b, type: 3}
-  m_Name: NotYet
+  m_Name: Disappointed
   m_EditorClassIdentifier: 
-  text: 'Hey ?!
-
-    Where are my apples ??
-
-    Hurry up or I will not come back
-    to the village !'
-  speaker: {fileID: 11400000, guid: d0f75652bb2d58f478e9248f93fd8f80, type: 2}
+  text: I am sad that David refused to come back to the village, everybody like him.
+  speaker: {fileID: 11400000, guid: 0a44a84297d00b84b9bf6d6fc5f9d642, type: 2}
   nextBubble: {fileID: 0}
