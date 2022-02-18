@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc458440f8ba0fe40a4624a78e02ea7b, type: 3}
-  m_Name: Wonderful
+  m_Name: 6_1_Reaction_Quest_Accepted
   m_EditorClassIdentifier: 
-  text: Wonderful adventurer ! You saved us !
-  speaker: {fileID: 11400000, guid: 0a44a84297d00b84b9bf6d6fc5f9d642, type: 2}
-  nextBubble: {fileID: 11400000, guid: cb1ff4a0783f8264fbdf6d6cfd809abd, type: 2}
+  text: Come back when it is done. Have a try along the path linking the river and
+    the little town going near the rock.
+  speaker: {fileID: 11400000, guid: 96fb37f40f0151d41986cc69a673234f, type: 2}
+  nextBubble: {fileID: 0}

@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class DemoGameManager : GameManager
 {
+    [SerializeField] BubbleSpeech storyIntroductionSpeech;
+
     private float noInputTimeBeforeSleep = 60;
     private float noInputCooldown = 0;
     private Vector3 lastMousePos = Vector3.zero;
@@ -17,7 +19,11 @@ public class DemoGameManager : GameManager
             if (Input.anyKey || lastMousePos != Input.mousePosition)
             {
                 noInputCooldown = 0;
-                hasEverMoved = true;
+                if (!hasEverMoved)
+                {
+                    hasEverMoved = true;
+                    DialogManager.instance.StartDialog(storyIntroductionSpeech);
+                }
             }
             else
             {
@@ -43,6 +49,7 @@ public class DemoGameManager : GameManager
             {
                 noInputCooldown = 0;
                 StopCinematic();
+                DialogManager.instance.StartDialog(storyIntroductionSpeech);
             }
             else
             {
@@ -54,11 +61,6 @@ public class DemoGameManager : GameManager
             }
         }
         lastMousePos = Input.mousePosition;
-    }
-
-    void OnReload()
-    {
-        Restart();
     }
 
     void StartCinematic()

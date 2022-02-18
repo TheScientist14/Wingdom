@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: "Ok fine, i\u2019ll join the village later in the day for a test, but first
     I want you to do something for me.\nI need some apples and it\u2019s hard for
-    me to gather them with this appearance. I\u2019ll wait for you to come back with
-    my apples before I go.\nDo it quickly, I\u2019m hungry."
+    me to gather them with this appearance.\nYou\u2019ll find some near the path
+    to the rock from the town.\nI\u2019ll wait for you to come back with my apples
+    before I go.\nDo it quickly, I\u2019m hungry."
   speaker: {fileID: 11400000, guid: d0f75652bb2d58f478e9248f93fd8f80, type: 2}
   nextBubble: {fileID: 0}

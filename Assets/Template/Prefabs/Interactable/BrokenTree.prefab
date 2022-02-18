@@ -81,6 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 3676669036189888424}
   controlHint: {fileID: 4432885585260081607}
+  doSelfTrigger: 0
 --- !u!135 &3611424079037886765
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -109,6 +110,9 @@ MonoBehaviour:
   leaves: {fileID: 2788563082135818738}
   healedMaterial: {fileID: 2100000, guid: e50af17ea1ef30749802a5dcc1acf1d1, type: 2}
   interactionListener: {fileID: 1523923982758688332}
+  onHeal:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8328733296703403797
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,8 +289,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

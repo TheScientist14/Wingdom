@@ -11,6 +11,7 @@ public class Interactable : MonoBehaviour
 {
     [SerializeField] Canvas canvas;
     [SerializeField] TextMeshProUGUI controlHint;
+    [SerializeField] bool doSelfTrigger = false;
 
     private new Camera camera;
     private bool canBeInteractable = true;
@@ -66,7 +67,14 @@ public class Interactable : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            WaitForInteraction(true);
+            if (doSelfTrigger)
+            {
+                OnInteract();
+            }
+            else
+            {
+                WaitForInteraction(true);
+            }
         }
     }
 
@@ -74,7 +82,10 @@ public class Interactable : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            WaitForInteraction(false);
+            if (!doSelfTrigger)
+            {
+                WaitForInteraction(false);
+            }
         }
     }
 

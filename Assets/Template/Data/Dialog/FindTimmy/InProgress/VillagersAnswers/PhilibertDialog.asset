@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc458440f8ba0fe40a4624a78e02ea7b, type: 3}
   m_Name: PhilibertDialog
   m_EditorClassIdentifier: 
-  text: "I advised him to stay near the path.\nI don\u2019t think he went far."
+  text: "I advised him to stay near the path to the deep forest.\nI don\u2019t think
+    he went far."
   speaker: {fileID: 11400000, guid: 135b24a90a9cc9c43bfe5f46d496671d, type: 2}
   nextBubble: {fileID: 0}

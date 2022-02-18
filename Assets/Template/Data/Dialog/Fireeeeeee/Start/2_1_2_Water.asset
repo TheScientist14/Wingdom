@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc458440f8ba0fe40a4624a78e02ea7b, type: 3}
-  m_Name: 6_1_Reaction_Quest_Denied
+  m_Name: 2_1_2_Water
   m_EditorClassIdentifier: 
-  text: Come back when it is done
-  speaker: {fileID: 11400000, guid: 96fb37f40f0151d41986cc69a673234f, type: 2}
+  text: "Here is a bucket of water, use it to extinguish the fire. I beg you !\r"
+  speaker: {fileID: 11400000, guid: 0a44a84297d00b84b9bf6d6fc5f9d642, type: 2}
   nextBubble: {fileID: 0}

@@ -261,6 +261,17 @@
                 },
                 {
                     "name": "",
+                    "id": "d5e3d842-db22-44c4-822e-a6b6a36bf2f4",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "973e2ad7-33e8-43d6-b09f-84a8e574a6a0",
                     "path": "*/{Submit}",
                     "interactions": "",
@@ -305,6 +316,17 @@
                 },
                 {
                     "name": "",
+                    "id": "6869ec3c-08fd-4d34-b099-239c671f7f56",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "7fda0392-4a1d-4999-87c8-363c8a096372",
                     "path": "<Keyboard>/f",
                     "interactions": "",
@@ -331,7 +353,7 @@
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "CameraMovement",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -359,9 +381,31 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "up",
+                    "id": "7488e8d4-82b0-4692-a7e3-99533d9030ba",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "CameraMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "down",
                     "id": "50603fd8-9e8f-4486-b75a-0c534b10f2d6",
                     "path": "<Keyboard>/numpad8",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "CameraMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "81ee6417-c4f2-40a5-9fd6-2e534d8e3458",
+                    "path": "<Keyboard>/o",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
@@ -383,7 +427,7 @@
                 {
                     "name": "left",
                     "id": "faba697b-517c-4d0c-99ef-a6c0b5198114",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/k",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
@@ -405,7 +449,7 @@
                 {
                     "name": "right",
                     "id": "f924a22d-8876-497b-bb92-473fe43afcc1",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/semicolon",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
@@ -453,6 +497,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse;Controller",
+                    "action": "ShowHide",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5b29f879-d5e1-4113-9377-0840c9ffc0dd",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
                     "action": "ShowHide",
                     "isComposite": false,
                     "isPartOfComposite": false

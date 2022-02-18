@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc458440f8ba0fe40a4624a78e02ea7b, type: 3}
   m_Name: 7_1_Trees_Left
   m_EditorClassIdentifier: 
-  text: 'Thank you adventurer for you help, however, you miss some of them.
+  text: 'Thank you adventurer for you help, however, you missed some of them.
 
     Find
-    the trees left and I will be able to give you a reward.'
+    the trees left and I will be able to give you a reward.
+
+    Remenber, follow
+    the path to the rock from the village and pay attention to trees missing leaves.'
   speaker: {fileID: 11400000, guid: 96fb37f40f0151d41986cc69a673234f, type: 2}
   nextBubble: {fileID: 0}

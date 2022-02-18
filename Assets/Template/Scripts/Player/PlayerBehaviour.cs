@@ -13,12 +13,14 @@ public class PlayerBehaviour : MonoBehaviour
 
     // movement
     [SerializeField] float speed = 5;
+    [SerializeField] float speedUpSquaredThreshold = 0.25f;
     private Vector2 movement = Vector2.zero;
     [SerializeField] float jumpForce = 2;
     [SerializeField] float flatTerrainTolerance = 0.2f;
     [SerializeField] float airTolerance = 0.01f;
     private bool isGrounded = true;
     private bool jump = false;
+    private bool hasSpeedUp = false;
 
     void Awake()
     {
@@ -130,6 +132,34 @@ public class PlayerBehaviour : MonoBehaviour
     void OnMovement(InputValue value)
     {
         movement = value.Get<Vector2>();
+        if(movement.sqrMagnitude > speedUpSquaredThreshold)
+        {
+            if (!hasSpeedUp)
+            {
+                if (!IsInvoking(nameof(SpeedUp)))
+                {
+                    Invoke(nameof(SpeedUp), 2);
+                }
+            }
+        }
+        else
+        {
+            if (hasSpeedUp)
+            {
+                CancelInvoke(nameof(SpeedUp));
+                hasSpeedUp = false;
+                speed /= 2;
+            }
+        }
+    }
+
+    void SpeedUp()
+    {
+        if (!hasSpeedUp)
+        {
+            hasSpeedUp = true;
+            speed *= 2;
+        }
     }
 
     void OnJump()
