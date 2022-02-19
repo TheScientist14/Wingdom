@@ -11,6 +11,7 @@ public class DemoGameManager : GameManager
     private bool hasEverMoved = false;
     private bool isPlayingCinematic = false;
     private float cinematicDuration;
+    private float restartBuffer = 0;
 
     void Update()
     {
@@ -59,6 +60,19 @@ public class DemoGameManager : GameManager
                     StartCinematic();
                 }
             }
+        }
+        if (Input.GetKey(KeyCode.Delete))
+        {
+            restartBuffer += Time.deltaTime;
+            if(restartBuffer > 1)
+            {
+                restartBuffer = 0;
+                Restart();
+            }
+        }
+        else
+        {
+            restartBuffer = 0;
         }
         lastMousePos = Input.mousePosition;
     }

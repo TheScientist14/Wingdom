@@ -16,6 +16,7 @@ public class HealingTreesQuest : Quest
         {
             brokenTree.onHeal.AddListener(UpdateQuestState);
         }
+        DialogManager.instance.onBubbleShown.AddListener(StartQuestOnDialog);
     }
 
     void UpdateQuestState()
