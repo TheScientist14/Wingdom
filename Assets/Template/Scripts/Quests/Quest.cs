@@ -1,8 +1,11 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class Quest : MonoBehaviour
 {
     protected QuestState state = QuestState.Unknown;
+
+    public UnityEvent OnQuestStateUpdate;
 
     public enum QuestState
     {
@@ -17,5 +20,6 @@ public abstract class Quest : MonoBehaviour
     public void SetProgress(QuestState newState)
     {
         state = newState;
+        OnQuestStateUpdate.Invoke();
     }
 }

@@ -8,7 +8,7 @@ public class SimplePnjBehaviour : MonoBehaviour
     [SerializeField] Interactable interactable;
 
     // Start is called before the first frame update
-    protected void Start()
+    void Start()
     {
         if (interactable != null)
         {
@@ -16,13 +16,8 @@ public class SimplePnjBehaviour : MonoBehaviour
         }
     }
 
-    protected void Talk()
+    void Talk()
     {
-        Debug.Log("Pnj");
         DialogManager.instance.StartDialog(dialog);
-        /*if (interactionClip)
-        {
-            SoundManager.instance.PlayClip(interactionClip);
-        }*/
     }
 }
