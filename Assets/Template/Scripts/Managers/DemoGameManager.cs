@@ -5,38 +5,38 @@ public class DemoGameManager : GameManager
 {
     [SerializeField] BubbleSpeech storyIntroductionSpeech;
 
-    private float noInputTimeBeforeSleep = 60;
-    private float noInputCooldown = 0;
-    private Vector3 lastMousePos = Vector3.zero;
-    private bool hasEverMoved = false;
-    private bool isPlayingCinematic = false;
-    private float cinematicDuration;
-    private float restartBuffer = 0;
+    private float _noInputTimeBeforeSleep = 60;
+    private float _noInputCooldown = 0;
+    private Vector3 _lastMousePos = Vector3.zero;
+    private bool _hasEverMoved = false;
+    private bool _isPlayingCinematic = false;
+    private float _cinematicDuration;
+    private float _restartBuffer = 0;
 
     void Update()
     {
-        if (!isPlayingCinematic)
+        if (!_isPlayingCinematic)
         {
-            if (Input.anyKey || lastMousePos != Input.mousePosition)
+            if (Input.anyKey || _lastMousePos != Input.mousePosition)
             {
-                noInputCooldown = 0;
-                if (!hasEverMoved)
+                _noInputCooldown = 0;
+                if (!_hasEverMoved)
                 {
-                    hasEverMoved = true;
-                    DialogManager.instance.StartDialog(storyIntroductionSpeech);
+                    _hasEverMoved = true;
+                    DialogManager.Instance.StartDialog(storyIntroductionSpeech);
                 }
             }
             else
             {
-                noInputCooldown += Time.deltaTime;
+                _noInputCooldown += Time.deltaTime;
             }
-            if(noInputCooldown >= noInputTimeBeforeSleep)
+            if(_noInputCooldown >= _noInputTimeBeforeSleep)
             {
-                if (hasEverMoved)
+                if (_hasEverMoved)
                 {
                     Restart();
-                    noInputCooldown = 0;
-                    hasEverMoved = false;
+                    _noInputCooldown = 0;
+                    _hasEverMoved = false;
                 }
                 else
                 {
@@ -48,14 +48,14 @@ public class DemoGameManager : GameManager
         {
             if (Input.anyKey)
             {
-                noInputCooldown = 0;
+                _noInputCooldown = 0;
                 StopCinematic();
-                DialogManager.instance.StartDialog(storyIntroductionSpeech);
+                DialogManager.Instance.StartDialog(storyIntroductionSpeech);
             }
             else
             {
-                noInputCooldown += Time.deltaTime;
-                if(noInputCooldown >= cinematicDuration + 0.1f)
+                _noInputCooldown += Time.deltaTime;
+                if(_noInputCooldown >= _cinematicDuration + 0.1f)
                 {
                     StartCinematic();
                 }
@@ -63,36 +63,36 @@ public class DemoGameManager : GameManager
         }
         if (Input.GetKey(KeyCode.Delete))
         {
-            restartBuffer += Time.deltaTime;
-            if(restartBuffer > 1)
+            _restartBuffer += Time.deltaTime;
+            if(_restartBuffer > 1)
             {
-                restartBuffer = 0;
+                _restartBuffer = 0;
                 Restart();
             }
         }
         else
         {
-            restartBuffer = 0;
+            _restartBuffer = 0;
         }
-        lastMousePos = Input.mousePosition;
+        _lastMousePos = Input.mousePosition;
     }
 
     void StartCinematic()
     {
-        noInputCooldown = 0;
-        isPlayingCinematic = true;
+        _noInputCooldown = 0;
+        _isPlayingCinematic = true;
         GameObject poi = GameObject.FindGameObjectWithTag("Cinematic");
         if (poi && poi.GetComponent<PointOfInterestBehaviour>())
         {
             PointOfInterestBehaviour poiBehaviour = poi.GetComponent<PointOfInterestBehaviour>();
             poiBehaviour.CameraCinematic();
-            cinematicDuration = poiBehaviour.GetLength();
+            _cinematicDuration = poiBehaviour.GetLength();
         }
     }
 
     void StopCinematic()
     {
-        isPlayingCinematic = false;
+        _isPlayingCinematic = false;
         GameObject poi = GameObject.FindGameObjectWithTag("Cinematic");
         if (poi && poi.GetComponent<PointOfInterestBehaviour>())
         {

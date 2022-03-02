@@ -1,25 +1,26 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public abstract class Quest : MonoBehaviour
 {
-    protected QuestState state = QuestState.Unknown;
+    protected QuestState State = QuestState.Unknown;
 
-    public UnityEvent OnQuestStateUpdate;
+    [FormerlySerializedAs("OnQuestStateUpdate")] public UnityEvent onQuestStateUpdate;
 
     public enum QuestState
     {
         Unknown, Unaccepted, Started, Failed, Completed
     }
 
-    public QuestState getProgress()
+    public QuestState GetProgress()
     {
-        return state;
+        return State;
     }
 
     public void SetProgress(QuestState newState)
     {
-        state = newState;
-        OnQuestStateUpdate.Invoke();
+        State = newState;
+        onQuestStateUpdate.Invoke();
     }
 }

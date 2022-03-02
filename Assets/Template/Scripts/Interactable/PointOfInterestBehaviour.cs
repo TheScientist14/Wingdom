@@ -12,14 +12,14 @@ public class PointOfInterestBehaviour : MonoBehaviour
         public GameObject pos;
         public float time;
     }
-    // first time won’t be considered
+    // first time wonâ€™t be considered
     [SerializeField] TimedPos[] travelPath;
     [SerializeField] new Camera camera;
-    private Camera mainCamera;
+    private Camera _mainCamera;
 
-    private Vector3 posBuffer;
-    private Quaternion rotationBuffer;
-    private bool isPlaying = false;
+    private Vector3 _posBuffer;
+    private Quaternion _rotationBuffer;
+    private bool _isPlaying = false;
 
     // Start is called before the first frame update
     void Start()
@@ -36,30 +36,30 @@ public class PointOfInterestBehaviour : MonoBehaviour
         {
             Debug.LogWarning("No interactable set to " + gameObject.name);
         }
-        mainCamera = Camera.main;
+        _mainCamera = Camera.main;
     }
 
     public void CameraCinematic()
     {
-        if (isPlaying)
+        if (_isPlaying)
         {
             ResetCamera();
         }
         if(travelPath.Length >= 2)
         {
-            GameManager.instance.SetInputsActive(false);
-            mainCamera.gameObject.SetActive(false);
+            GameManager.Instance.SetInputsActive(false);
+            _mainCamera.gameObject.SetActive(false);
             camera.gameObject.SetActive(true);
-            posBuffer = camera.transform.position;
-            rotationBuffer = camera.transform.rotation;
+            _posBuffer = camera.transform.position;
+            _rotationBuffer = camera.transform.rotation;
             camera.transform.position = travelPath[0].pos.transform.position;
             camera.transform.rotation = travelPath[0].pos.transform.rotation;
-            isPlaying = true;
+            _isPlaying = true;
             StartCoroutine(MoveCamera());
         }
         else
         {
-            Debug.Log("Can’t make camera travelling, less than 2 positions have been given in " + this.name);
+            Debug.Log("Canâ€™t make camera travelling, less than 2 positions have been given in " + this.name);
         }
     }
 
@@ -98,12 +98,12 @@ public class PointOfInterestBehaviour : MonoBehaviour
     public void ResetCamera()
     {
         StopCoroutine(MoveCamera());
-        isPlaying = false;
-        camera.transform.position = posBuffer;
-        camera.transform.rotation = rotationBuffer;
+        _isPlaying = false;
+        camera.transform.position = _posBuffer;
+        camera.transform.rotation = _rotationBuffer;
         camera.gameObject.SetActive(false);
-        mainCamera.gameObject.SetActive(true);
-        GameManager.instance.SetInputsActive(true);
+        _mainCamera.gameObject.SetActive(true);
+        GameManager.Instance.SetInputsActive(true);
     }
 
     public float GetLength()

@@ -22,29 +22,29 @@ public class HermitPnjBehaviour : MonoBehaviour
 
     void Talk()
     {
-        switch (hermitQuest.getProgress())
+        switch (hermitQuest.GetProgress())
         {
             case Quest.QuestState.Unknown:
             case Quest.QuestState.Unaccepted:
-                DialogManager.instance.StartDialog(beforeQuestSpeech);
+                DialogManager.Instance.StartDialog(beforeQuestSpeech);
                 break;
             case Quest.QuestState.Started:
-                switch (hermitSubquest.getProgress())
+                switch (hermitSubquest.GetProgress())
                 {
                     case Quest.QuestState.Unknown:
                     case Quest.QuestState.Unaccepted:
-                        DialogManager.instance.StartDialog(firstSpeech);
+                        DialogManager.Instance.StartDialog(firstSpeech);
                         break;
                     case Quest.QuestState.Started:
-                        DialogManager.instance.StartDialog(subquestInProgressSpeech);
+                        DialogManager.Instance.StartDialog(subquestInProgressSpeech);
                         break;
                     case Quest.QuestState.Completed:
-                        DialogManager.instance.StartDialog(subquestDoneSpeech);
+                        DialogManager.Instance.StartDialog(subquestDoneSpeech);
                         break;
                 }
                 break;
             case Quest.QuestState.Failed:
-                DialogManager.instance.StartDialog(failedQuestSpeech);
+                DialogManager.Instance.StartDialog(failedQuestSpeech);
                 break;
             default:
                 break;

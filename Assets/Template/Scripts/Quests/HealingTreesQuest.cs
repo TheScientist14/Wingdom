@@ -6,23 +6,23 @@ public class HealingTreesQuest : Quest
 {
     [SerializeField] BubbleSpeech acceptedQuestEndDialog;
 
-    private BrokenTreeBehaviour[] brokenTrees;
+    private BrokenTreeBehaviour[] _brokenTrees;
 
     // Start is called before the first frame update
     void Start()
     {
-        brokenTrees = FindObjectsOfType<BrokenTreeBehaviour>();
-        foreach (BrokenTreeBehaviour brokenTree in brokenTrees)
+        _brokenTrees = FindObjectsOfType<BrokenTreeBehaviour>();
+        foreach (BrokenTreeBehaviour brokenTree in _brokenTrees)
         {
             brokenTree.onHeal.AddListener(UpdateQuestState);
         }
-        DialogManager.instance.onBubbleShown.AddListener(StartQuestOnDialog);
+        DialogManager.Instance.onBubbleShown.AddListener(StartQuestOnDialog);
     }
 
     void UpdateQuestState()
     {
         bool treesHaveBeenHealed = true;
-        foreach(BrokenTreeBehaviour brokenTree in brokenTrees)
+        foreach(BrokenTreeBehaviour brokenTree in _brokenTrees)
         {
             if (!brokenTree.HasBeenHealed())
             {
@@ -39,7 +39,7 @@ public class HealingTreesQuest : Quest
     public void StartQuest()
     {
         SetProgress(QuestState.Started);
-        foreach(BrokenTreeBehaviour brokenTree in brokenTrees)
+        foreach(BrokenTreeBehaviour brokenTree in _brokenTrees)
         {
             brokenTree.SetCanBeHealed(true);
             brokenTree.onHeal.AddListener(UpdateQuestState);
@@ -55,7 +55,7 @@ public class HealingTreesQuest : Quest
     {
         if (shownBubble.Equals(acceptedQuestEndDialog)){
             StartQuest();
-            DialogManager.instance.onBubbleShown.RemoveListener(StartQuestOnDialog);
+            DialogManager.Instance.onBubbleShown.RemoveListener(StartQuestOnDialog);
         }
     }
 }

@@ -16,20 +16,20 @@ public class DialogManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI[] answersText;
     [SerializeField] Speaker player;
 
-    private BubbleSpeech currentBubble;
-    private BubbleSpeech lastBubble;
+    private BubbleSpeech _currentBubble;
+    private BubbleSpeech _lastBubble;
 
     [System.Serializable]
     public class OnBubbleShown : UnityEvent<BubbleSpeech> { };
     public OnBubbleShown onBubbleShown;
 
-    public static DialogManager instance;
+    public static DialogManager Instance;
 
     void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
         else
         {
@@ -49,15 +49,15 @@ public class DialogManager : MonoBehaviour
 
     public void StartDialog(BubbleSpeech conversation)
     {
-        currentBubble = conversation;
+        _currentBubble = conversation;
         dialogsContainer.SetActive(true);
-        GameManager.instance.SetInputsActive(false);
-        updateBubble();
+        GameManager.Instance.SetInputsActive(false);
+        UpdateBubble();
     }
 
     private void EndDialog()
     {
-        GameManager.instance.SetInputsActive(true);
+        GameManager.Instance.SetInputsActive(true);
         dialogsContainer.SetActive(false);
     }
 
@@ -65,11 +65,11 @@ public class DialogManager : MonoBehaviour
     {
         if (!text.isTextOverflowing)
         {
-            if (currentBubble.nextBubble != null)
+            if (_currentBubble.nextBubble != null)
             {
-                lastBubble = currentBubble;
-                currentBubble = currentBubble.nextBubble;
-                updateBubble();
+                _lastBubble = _currentBubble;
+                _currentBubble = _currentBubble.nextBubble;
+                UpdateBubble();
             }
             else
             {
@@ -84,10 +84,10 @@ public class DialogManager : MonoBehaviour
 
     public void Answer(int i)
     {
-        Answer chosenAnswer = ((Answers)currentBubble).answers[i];
+        Answer chosenAnswer = ((Answers)_currentBubble).answers[i];
         foreach (Answer.PnjEmpathyImpact pnjEmpathyImpact in chosenAnswer.pnjEmpathyImpacts)
         {
-            EmpathyManager.instance.UpdateEmpathyPNJ(pnjEmpathyImpact.pnj, pnjEmpathyImpact.empathyImpact);
+            EmpathyManager.Instance.UpdateEmpathyPnj(pnjEmpathyImpact.pnj, pnjEmpathyImpact.empathyImpact);
         }
         text.gameObject.SetActive(true);
         nextButton.SetActive(true);
@@ -95,35 +95,35 @@ public class DialogManager : MonoBehaviour
         {
             answerButton.SetActive(false);
         }
-        lastBubble = currentBubble;
-        currentBubble = chosenAnswer;
-        onBubbleShown.Invoke(currentBubble);
+        _lastBubble = _currentBubble;
+        _currentBubble = chosenAnswer;
+        onBubbleShown.Invoke(_currentBubble);
         Next();
     }
 
-    private void updateBubble()
+    private void UpdateBubble()
     {
-        if(currentBubble is Answers)
+        if(_currentBubble is Answers)
         {
-            displayAnswers();
+            DisplayAnswers();
         }
         else
         {
             EventSystem.current.SetSelectedGameObject(nextButton);
-            text.text = currentBubble.text;
-            speakerIcon.sprite = currentBubble.speaker.icon;
-            onBubbleShown.Invoke(currentBubble);
+            text.text = _currentBubble.text;
+            speakerIcon.sprite = _currentBubble.speaker.icon;
+            onBubbleShown.Invoke(_currentBubble);
             // speaker name
         }
     }
 
-    private void displayAnswers()
+    private void DisplayAnswers()
     {
         // currentBubble is Answers
         text.gameObject.SetActive(false);
         nextButton.SetActive(false);
         speakerIcon.sprite = player.icon;
-        Answer[] answers = ((Answers)currentBubble).answers;
+        Answer[] answers = ((Answers)_currentBubble).answers;
         for(int i = 0; i < answers.Length; i++)
         {
             answerButtons[i].SetActive(true);
@@ -134,6 +134,6 @@ public class DialogManager : MonoBehaviour
 
     public BubbleSpeech GetLastBubble()
     {
-        return lastBubble;
+        return _lastBubble;
     }
 }

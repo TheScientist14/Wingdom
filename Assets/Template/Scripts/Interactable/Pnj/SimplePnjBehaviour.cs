@@ -18,6 +18,6 @@ public class SimplePnjBehaviour : MonoBehaviour
 
     void Talk()
     {
-        DialogManager.instance.StartDialog(dialog);
+        DialogManager.Instance.StartDialog(dialog);
     }
 }

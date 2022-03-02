@@ -6,25 +6,25 @@ public class FireQuest : Quest
 {
     [SerializeField] BubbleSpeech startSpeech;
 
-    private FireBehaviour[] fires;
+    private FireBehaviour[] _fires;
 
     void Awake()
     {
-        fires = FindObjectsOfType<FireBehaviour>();
-        Debug.Log(fires.Length);
+        _fires = FindObjectsOfType<FireBehaviour>();
+        Debug.Log(_fires.Length);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        DialogManager.instance.onBubbleShown.AddListener(StartQuestOnDialog);
+        DialogManager.Instance.onBubbleShown.AddListener(StartQuestOnDialog);
     }
 
     // Update is called once per frame
     void UpdateQuestState()
     {
         bool firesHaveBeenKilled = true;
-        foreach (FireBehaviour fire in fires)
+        foreach (FireBehaviour fire in _fires)
         {
             Debug.Log(fire.gameObject.name);
             if (fire.IsAlive())
@@ -45,13 +45,13 @@ public class FireQuest : Quest
         {
             SetProgress(QuestState.Started);
             Debug.Log("Starting quest");
-            foreach (FireBehaviour fire in fires)
+            foreach (FireBehaviour fire in _fires)
             {
                 fire.onFireKilled.AddListener(UpdateQuestState);
                 fire.interactable.SetIsInteractable(true);
                 Debug.Log("Listening " + fire.gameObject.name);
             }
-            DialogManager.instance.onBubbleShown.RemoveListener(StartQuestOnDialog);
+            DialogManager.Instance.onBubbleShown.RemoveListener(StartQuestOnDialog);
         }
     }
 }

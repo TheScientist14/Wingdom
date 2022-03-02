@@ -13,7 +13,7 @@ public class HermitQuest : Quest
     // Start is called before the first frame update
     void Start()
     {
-        DialogManager.instance.onBubbleShown.AddListener(StartQuestOnSpeech);
+        DialogManager.Instance.onBubbleShown.AddListener(StartQuestOnSpeech);
     }
 
     void StartQuestOnSpeech(BubbleSpeech shownSpeech)

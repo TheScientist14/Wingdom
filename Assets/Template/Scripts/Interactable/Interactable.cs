@@ -13,16 +13,16 @@ public class Interactable : MonoBehaviour
     [SerializeField] TextMeshProUGUI controlHint;
     [SerializeField] bool doSelfTrigger = false;
 
-    private new Camera camera;
-    private bool canBeInteractable = true;
-    private bool isInRange = false;
-    private bool updateUiRotation = false;
-    private ArrayList listeners;
+    private Camera _camera;
+    private bool _canBeInteractable = true;
+    private bool _isInRange = false;
+    private bool _updateUiRotation = false;
+    private ArrayList _listeners;
 
     void Awake()
     {
-        listeners = new ArrayList();
-        camera = Camera.main;
+        _listeners = new ArrayList();
+        _camera = Camera.main;
     }
 
     // Start is called before the first frame update
@@ -30,7 +30,7 @@ public class Interactable : MonoBehaviour
     {
         if (canvas && controlHint)
         {
-            canvas.transform.rotation = camera.transform.rotation;
+            canvas.transform.rotation = _camera.transform.rotation;
             controlHint.gameObject.SetActive(false);
         }
         else
@@ -41,18 +41,18 @@ public class Interactable : MonoBehaviour
 
     void Update()
     {
-        if (updateUiRotation)
+        if (_updateUiRotation)
         {
             if (canvas)
             {
-                canvas.transform.rotation = camera.transform.rotation;
+                canvas.transform.rotation = _camera.transform.rotation;
             }
         }
     }
 
     void OnInteract()
     {
-        if (canBeInteractable && isInRange)
+        if (_canBeInteractable && _isInRange)
         {
             WaitForInteraction(false);
             Invoke();
@@ -60,7 +60,7 @@ public class Interactable : MonoBehaviour
     }
 
     void OnCameraMovement(InputValue value){
-        updateUiRotation = (value.Get<Vector2>().magnitude != 0);
+        _updateUiRotation = (value.Get<Vector2>().magnitude != 0);
     }
 
     void OnTriggerEnter(Collider other)
@@ -91,9 +91,9 @@ public class Interactable : MonoBehaviour
 
     void WaitForInteraction(bool isInteractable)
     {
-        if (canBeInteractable)
+        if (_canBeInteractable)
         {
-            isInRange = isInteractable;
+            _isInRange = isInteractable;
             if (controlHint)
             {
                 controlHint.gameObject.SetActive(isInteractable);
@@ -101,7 +101,7 @@ public class Interactable : MonoBehaviour
         }
         else
         {
-            isInRange = false;
+            _isInRange = false;
             if (controlHint)
             {
                 controlHint.gameObject.SetActive(false);
@@ -111,22 +111,22 @@ public class Interactable : MonoBehaviour
 
     public void SetIsInteractable(bool canBeInteractable)
     {
-        this.canBeInteractable = canBeInteractable;
+        this._canBeInteractable = canBeInteractable;
     }
 
     public void AddAction(UnityAction unityAction)
     {
-        listeners.Add(unityAction);
+        _listeners.Add(unityAction);
     }
 
     public void RemoveAction(UnityAction unityAction)
     {
-        listeners.Remove(unityAction);
+        _listeners.Remove(unityAction);
     }
 
     private void Invoke()
     {
-        foreach(UnityAction unityAction in listeners)
+        foreach(UnityAction unityAction in _listeners)
         {
             unityAction.Invoke();
         }

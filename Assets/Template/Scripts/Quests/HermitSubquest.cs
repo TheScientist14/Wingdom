@@ -7,22 +7,22 @@ public class HermitSubquest : Quest
     [SerializeField] BubbleSpeech startQuestSpeech;
     [SerializeField] GameObject applesBasket;
 
-    Interactable applesBasketInteractable;
+    Interactable _applesBasketInteractable;
 
     void Awake()
     {
-        applesBasketInteractable = applesBasket.GetComponent<Interactable>();
+        _applesBasketInteractable = applesBasket.GetComponent<Interactable>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        if (applesBasketInteractable)
+        if (_applesBasketInteractable)
         {
-            applesBasketInteractable.AddAction(CompleteQuest);
+            _applesBasketInteractable.AddAction(CompleteQuest);
         }
         applesBasket.SetActive(false);
-        DialogManager.instance.onBubbleShown.AddListener(StartSubquestOnSpeech);
+        DialogManager.Instance.onBubbleShown.AddListener(StartSubquestOnSpeech);
     }
 
     void StartSubquestOnSpeech(BubbleSpeech shownSpeech)

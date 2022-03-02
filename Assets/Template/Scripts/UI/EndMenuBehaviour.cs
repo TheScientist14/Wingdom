@@ -9,28 +9,28 @@ public class EndMenuBehaviour : MonoBehaviour
     [SerializeField] GameObject endMenuPanel;
     [SerializeField] GameObject firstSelected;
     [SerializeField] BubbleSpeech[] requiredSpeeches;
-    private HashSet<BubbleSpeech> remainingRequiredSpeeches;
+    private HashSet<BubbleSpeech> _remainingRequiredSpeeches;
 
     // Start is called before the first frame update
     void Start()
     {
-        remainingRequiredSpeeches = new HashSet<BubbleSpeech>(requiredSpeeches);
+        _remainingRequiredSpeeches = new HashSet<BubbleSpeech>(requiredSpeeches);
         /*foreach(BubbleSpeech speech in requiredSpeeches)
         {
             remainingRequiredSpeeches.Add(speech);
         }*/
-        DialogManager.instance.onBubbleShown.AddListener(CheckForEnd);
+        DialogManager.Instance.onBubbleShown.AddListener(CheckForEnd);
         endMenuPanel.SetActive(false);
     }
 
     // Update is called once per frame
     void CheckForEnd(BubbleSpeech shownSpeech)
     {
-        remainingRequiredSpeeches.Remove(shownSpeech);
-        if(remainingRequiredSpeeches.Count == 0)
+        _remainingRequiredSpeeches.Remove(shownSpeech);
+        if(_remainingRequiredSpeeches.Count == 0)
         {
             Debug.Log("won");
-            GameManager.instance.SetInputsActive(false);
+            GameManager.Instance.SetInputsActive(false);
             endMenuPanel.SetActive(true);
             EventSystem.current.SetSelectedGameObject(firstSelected);
         }
@@ -38,6 +38,6 @@ public class EndMenuBehaviour : MonoBehaviour
 
     public void Restart()
     {
-        GameManager.instance.Restart();
+        GameManager.Instance.Restart();
     }
 }

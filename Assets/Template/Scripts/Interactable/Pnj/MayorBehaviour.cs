@@ -20,7 +20,7 @@ public class MayorBehaviour : MonoBehaviour
     [SerializeField] QuestBubble[] questsBubbles;
     [SerializeField] BubbleSpeech allQuestsCompletedSpeech;
 
-    private int iQuest = 0;
+    private int _iQuest = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -30,24 +30,24 @@ public class MayorBehaviour : MonoBehaviour
 
     void Talk()
     {
-        Debug.Log(iQuest);
-        if(iQuest < questsBubbles.Length)
+        Debug.Log(_iQuest);
+        if(_iQuest < questsBubbles.Length)
         {
-            Debug.Log(questsBubbles[iQuest].quest.getProgress());
-            switch (questsBubbles[iQuest].quest.getProgress())
+            Debug.Log(questsBubbles[_iQuest].quest.GetProgress());
+            switch (questsBubbles[_iQuest].quest.GetProgress())
             {
                 case Quest.QuestState.Unknown:
                 case Quest.QuestState.Unaccepted:
-                    DialogManager.instance.StartDialog(questsBubbles[iQuest].startingSpeech);
+                    DialogManager.Instance.StartDialog(questsBubbles[_iQuest].startingSpeech);
                     break;
                 case Quest.QuestState.Started:
-                    DialogManager.instance.StartDialog(questsBubbles[iQuest].inProgressSpeech);
+                    DialogManager.Instance.StartDialog(questsBubbles[_iQuest].inProgressSpeech);
                     break;
                 case Quest.QuestState.Failed:
-                    if (questsBubbles[iQuest].failedSpeech)
+                    if (questsBubbles[_iQuest].failedSpeech)
                     {
-                        DialogManager.instance.StartDialog(questsBubbles[iQuest].failedSpeech);
-                        iQuest++;
+                        DialogManager.Instance.StartDialog(questsBubbles[_iQuest].failedSpeech);
+                        _iQuest++;
                     }
                     else
                     {
@@ -61,20 +61,20 @@ public class MayorBehaviour : MonoBehaviour
         }
         else
         {
-            DialogManager.instance.StartDialog(allQuestsCompletedSpeech);
+            DialogManager.Instance.StartDialog(allQuestsCompletedSpeech);
         }
     }
 
     void StartCompletedSpeechCurrentQuest()
     {
-        if (questsBubbles[iQuest].completedSpeech)
+        if (questsBubbles[_iQuest].completedSpeech)
         {
-            DialogManager.instance.StartDialog(questsBubbles[iQuest].completedSpeech);
-            iQuest++;
+            DialogManager.Instance.StartDialog(questsBubbles[_iQuest].completedSpeech);
+            _iQuest++;
         }
         else
         {
-            iQuest++;
+            _iQuest++;
             Talk();
         }
     }

@@ -18,11 +18,11 @@ public class PauseMenu : MonoBehaviour
         if (pauseMenuPanel.activeSelf)
         {
             EventSystem.current.SetSelectedGameObject(firstSelectedButton);
-            GameManager.instance.Pause();
+            GameManager.Instance.Pause();
         }
         else
         {
-            GameManager.instance.Resume();
+            GameManager.Instance.Resume();
         }
     }
 
@@ -34,6 +34,6 @@ public class PauseMenu : MonoBehaviour
     // demo
     public void Restart()
     {
-        GameManager.instance.Restart();
+        GameManager.Instance.Restart();
     }
 }

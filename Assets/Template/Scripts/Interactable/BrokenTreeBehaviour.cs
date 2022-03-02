@@ -10,7 +10,7 @@ public class BrokenTreeBehaviour : MonoBehaviour
     [SerializeField] Material healedMaterial;
     [SerializeField] Interactable interactionListener;
 
-    private bool isHealed = false;
+    private bool _isHealed = false;
 
     public UnityEvent onHeal;
 
@@ -26,14 +26,14 @@ public class BrokenTreeBehaviour : MonoBehaviour
     {
         //leaves.material = healedMaterial;
         leaves.gameObject.SetActive(true);
-        isHealed = true;
+        _isHealed = true;
         interactionListener.SetIsInteractable(false);
         onHeal.Invoke();
     }
 
     public bool HasBeenHealed()
     {
-        return isHealed;
+        return _isHealed;
     }
 
     public void SetCanBeHealed(bool canBeHealed)

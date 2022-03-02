@@ -11,7 +11,7 @@ public class TimmyBehaviour : MonoBehaviour
     [SerializeField] Quest takeTimmyHomeQuest;
     [SerializeField] NavMeshAgent navAgent;
 
-    GameObject player;
+    GameObject _player;
 
     // Start is called before the first frame update
     void Start()
@@ -20,19 +20,19 @@ public class TimmyBehaviour : MonoBehaviour
         {
             interactable.AddAction(Talk);
         }
-        player = GameObject.FindGameObjectWithTag("Player");
-        findTimmyQuest.OnQuestStateUpdate.AddListener(FollowPlayer);
-        takeTimmyHomeQuest.OnQuestStateUpdate.AddListener(Vanish);
+        _player = GameObject.FindGameObjectWithTag("Player");
+        findTimmyQuest.onQuestStateUpdate.AddListener(FollowPlayer);
+        takeTimmyHomeQuest.onQuestStateUpdate.AddListener(Vanish);
     }
 
     void Talk()
     {
-        DialogManager.instance.StartDialog(dialog);
+        DialogManager.Instance.StartDialog(dialog);
     }
 
     void FollowPlayer()
     {
-        if (findTimmyQuest.getProgress() == Quest.QuestState.Completed)
+        if (findTimmyQuest.GetProgress() == Quest.QuestState.Completed)
         {
             StartCoroutine(TrackPlayer());
         }
@@ -42,14 +42,14 @@ public class TimmyBehaviour : MonoBehaviour
     {
         while (true)
         {
-            navAgent.SetDestination(player.transform.position);
+            navAgent.SetDestination(_player.transform.position);
             yield return new WaitForSeconds(0.2f);
         }
     }
 
     void Vanish()
     {
-        if (takeTimmyHomeQuest.getProgress() == Quest.QuestState.Completed)
+        if (takeTimmyHomeQuest.GetProgress() == Quest.QuestState.Completed)
         {
             Destroy(gameObject);
         }

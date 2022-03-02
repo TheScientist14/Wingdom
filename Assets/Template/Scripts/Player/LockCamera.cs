@@ -5,28 +5,29 @@ using UnityEngine.InputSystem;
 
 public class LockCamera : MonoBehaviour
 {
-    [SerializeField] Transform player;
-    [SerializeField] new Camera camera;
-    [SerializeField] float cameraHorizontalRotationSpeed = 30;
-    [SerializeField] float cameraVerticalRotationSpeed = 5;
-    [SerializeField] float verticalMinAngle = 20;
-    [SerializeField] float verticalMaxAngle = 50;
+    [SerializeField] private Transform player;
+    [SerializeField] private new Camera camera;
+    [SerializeField] private float cameraHorizontalRotationSpeed = 30;
+    [SerializeField] private float cameraVerticalRotationSpeed = 5;
+    [SerializeField] private float verticalMinAngle = 20;
+    [SerializeField] private float verticalMaxAngle = 50;
     //[SerializeField] float cameraZoomSpeed = 1;
-    [SerializeField] float[] cameraZoomLevels;
+    [SerializeField] private float[] cameraZoomLevels;
     //[SerializeField] float smoothFactorCameraRotationSpeed;
-    private Vector2 inputValueRotation = Vector2.zero;
-    private int currentZoomIndex = 0;
+    private Vector2 _inputValueRotation = Vector2.zero;
+    private int _currentZoomIndex = 0;
     //private Vector3 offset;
 
     [Range(0.01f, 1.0f)]
-    [SerializeField] float smoothFactor = 0.5f;
+    [SerializeField]
+    private float smoothFactor = 0.5f;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         //offset = transform.position - player.position;
-        currentZoomIndex = cameraZoomLevels.Length / 2;
-        camera.orthographicSize = cameraZoomLevels[currentZoomIndex];
+        _currentZoomIndex = cameraZoomLevels.Length / 2;
+        camera.orthographicSize = cameraZoomLevels[_currentZoomIndex];
     }
 
     private void FixedUpdate()
@@ -36,20 +37,20 @@ public class LockCamera : MonoBehaviour
 
         if(transform.rotation.eulerAngles.x >= verticalMaxAngle)
         {
-            if(inputValueRotation.y > 0)
+            if(_inputValueRotation.y > 0)
             {
-                inputValueRotation.y = 0;
+                _inputValueRotation.y = 0;
             }
         }
         if (transform.rotation.eulerAngles.x <= verticalMinAngle)
         {
-            if (inputValueRotation.y < 0)
+            if (_inputValueRotation.y < 0)
             {
-                inputValueRotation.y = 0;
+                _inputValueRotation.y = 0;
             }
         }
-        transform.Rotate(0, inputValueRotation.x * cameraHorizontalRotationSpeed * Time.fixedDeltaTime, 0, Space.World);
-        transform.Rotate(inputValueRotation.y * cameraVerticalRotationSpeed * Time.fixedDeltaTime, 0, 0, Space.Self);
+        transform.Rotate(0, _inputValueRotation.x * cameraHorizontalRotationSpeed * Time.fixedDeltaTime, 0, Space.World);
+        transform.Rotate(_inputValueRotation.y * cameraVerticalRotationSpeed * Time.fixedDeltaTime, 0, 0, Space.Self);
 
         /*if(cameraDistance.position.z <= minCameraZoom)
         {
@@ -68,21 +69,22 @@ public class LockCamera : MonoBehaviour
         //cameraDistance.orthographicSize += inputValueZoom * cameraZoomSpeed * Time.fixedDeltaTime;
     }
 
-    void OnCameraMovement(InputValue value)
+    private void OnCameraMovement(InputValue value)
     {
-        inputValueRotation = value.Get<Vector2>();
+        _inputValueRotation = value.Get<Vector2>();
     }
 
-    void OnCameraZoom(InputValue value)
+    private void OnCameraZoom(InputValue value)
     {
         if (value.isPressed)
         {
-            currentZoomIndex++;
-            if(currentZoomIndex >= cameraZoomLevels.Length)
+            Debug.Log("cc");
+            _currentZoomIndex++;
+            if(_currentZoomIndex >= cameraZoomLevels.Length)
             {
-                currentZoomIndex = 0;
+                _currentZoomIndex = 0;
             }
-            camera.orthographicSize = cameraZoomLevels[currentZoomIndex];
+            camera.orthographicSize = cameraZoomLevels[_currentZoomIndex];
         }
     }
 }

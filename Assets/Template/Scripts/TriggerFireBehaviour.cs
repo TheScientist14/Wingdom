@@ -1,31 +1,29 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TriggerFireBehaviour : MonoBehaviour
 {
-    [SerializeField] PointOfInterestBehaviour fireCinematic;
-    [SerializeField] Collider trigger;
-    [SerializeField] BubbleSpeech[] enableFireTriggerSpeeches;
+    [SerializeField] private PointOfInterestBehaviour fireCinematic;
+    [SerializeField] private Collider trigger;
+    [SerializeField] private BubbleSpeech[] enableFireTriggerSpeeches;
 
-    private FireBehaviour[] fires;
+    private FireBehaviour[] _fires;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        fires = FindObjectsOfType<FireBehaviour>();
-        foreach (FireBehaviour fire in fires)
+        _fires = FindObjectsOfType<FireBehaviour>();
+        foreach (FireBehaviour fire in _fires)
         {
             fire.gameObject.SetActive(false);
         }
         trigger.enabled = false;
-        DialogManager.instance.onBubbleShown.AddListener(EnableTriggerOnSpeech);
+        DialogManager.Instance.onBubbleShown.AddListener(EnableTriggerOnSpeech);
     }
 
-    void OnTriggerEnter()
+    private void OnTriggerEnter(Collider other)
     {
-        foreach (FireBehaviour fire in fires)
+        foreach (FireBehaviour fire in _fires)
         {
             fire.gameObject.SetActive(true);
         }
@@ -33,12 +31,12 @@ public class TriggerFireBehaviour : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    void EnableTriggerOnSpeech(BubbleSpeech shownSpeech)
+    private void EnableTriggerOnSpeech(BubbleSpeech shownSpeech)
     {
         if (Array.IndexOf(enableFireTriggerSpeeches, shownSpeech) != -1)
         {
             trigger.enabled = true;
-            DialogManager.instance.onBubbleShown.RemoveListener(EnableTriggerOnSpeech);
+            DialogManager.Instance.onBubbleShown.RemoveListener(EnableTriggerOnSpeech);
         }
     }
 }

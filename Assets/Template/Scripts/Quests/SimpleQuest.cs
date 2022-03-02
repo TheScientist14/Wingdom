@@ -11,7 +11,7 @@ public class SimpleQuest : Quest
     // Start is called before the first frame update
     void Start()
     {
-        DialogManager.instance.onBubbleShown.AddListener(StartQuestOnSpeech);
+        DialogManager.Instance.onBubbleShown.AddListener(StartQuestOnSpeech);
         targetInteractable.SetIsInteractable(false);
         foreach(Interactable interactable in interactableActiveOnlyWhileQuest)
         {
@@ -24,7 +24,7 @@ public class SimpleQuest : Quest
         if (shownBubble.Equals(acceptQuestSpeech))
         {
             SetProgress(QuestState.Started);
-            DialogManager.instance.onBubbleShown.RemoveListener(StartQuestOnSpeech);
+            DialogManager.Instance.onBubbleShown.RemoveListener(StartQuestOnSpeech);
             targetInteractable.AddAction(EndQuest);
             targetInteractable.SetIsInteractable(true);
             foreach (Interactable interactable in interactableActiveOnlyWhileQuest)

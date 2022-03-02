@@ -7,19 +7,19 @@ public class MusicManager : MonoBehaviour
     [SerializeField] AudioSource speaker;
     [SerializeField] AudioClip[] musicClips;
 
-    private int prevMusic;
+    private int _prevMusic;
 
-    public static MusicManager instance;
+    public static MusicManager Instance;
 
     void Awake()
     {
-        if (instance)
+        if (Instance)
         {
             Destroy(gameObject);
         }
         else
         {
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
         }
     }
@@ -31,7 +31,7 @@ public class MusicManager : MonoBehaviour
         {
             if (musicClips.Length >= 2)
             {
-                prevMusic = Random.Range(0, musicClips.Length);
+                _prevMusic = Random.Range(0, musicClips.Length);
                 NextMusic();
             }
             else if(musicClips.Length == 1)
@@ -54,13 +54,13 @@ public class MusicManager : MonoBehaviour
     void NextMusic()
     {
         int iMusic = Random.Range(0, musicClips.Length - 1);
-        if(iMusic >= prevMusic)
+        if(iMusic >= _prevMusic)
         {
             iMusic++;
         }
         speaker.clip = musicClips[iMusic]; ;
         Invoke(nameof(NextMusic), speaker.clip.length);
-        prevMusic = iMusic;
+        _prevMusic = iMusic;
     }
 
     public void SetVolume(int volume)

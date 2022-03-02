@@ -10,8 +10,8 @@ public class VaniasQuestBehaviour : MonoBehaviour
     [SerializeField] BubbleSpeech completedQuestDialog;
     [SerializeField] BubbleSpeech completedQuestReminderDialog;
 
-    bool endingQuestDialogHasBeenShown = false;
-    bool hasTalkOnce = false;
+    bool _endingQuestDialogHasBeenShown = false;
+    bool _hasTalkOnce = false;
 
     void Start()
     {
@@ -21,37 +21,37 @@ public class VaniasQuestBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!hasTalkOnce)
+        if (!_hasTalkOnce)
         {
             Talk();
             interactable.SetIsInteractable(true);
-            hasTalkOnce = true;
+            _hasTalkOnce = true;
         }
     }
 
     protected void Talk()
     {
-        switch (quest.getProgress())
+        switch (quest.GetProgress())
         {
             case Quest.QuestState.Unknown:
-                DialogManager.instance.StartDialog(startingQuestDialog);
+                DialogManager.Instance.StartDialog(startingQuestDialog);
                 quest.SetProgress(Quest.QuestState.Unaccepted);
                 break;
             case Quest.QuestState.Unaccepted:
-                DialogManager.instance.StartDialog(propositionQuestDialog);
+                DialogManager.Instance.StartDialog(propositionQuestDialog);
                 break;
             case Quest.QuestState.Started:
-                DialogManager.instance.StartDialog(onGoingQuestDialog);
+                DialogManager.Instance.StartDialog(onGoingQuestDialog);
                 break;
             case Quest.QuestState.Completed:
-                if (!endingQuestDialogHasBeenShown)
+                if (!_endingQuestDialogHasBeenShown)
                 {
-                    DialogManager.instance.StartDialog(completedQuestDialog);
-                    endingQuestDialogHasBeenShown = true;
+                    DialogManager.Instance.StartDialog(completedQuestDialog);
+                    _endingQuestDialogHasBeenShown = true;
                 }
                 else
                 {
-                    DialogManager.instance.StartDialog(completedQuestReminderDialog);
+                    DialogManager.Instance.StartDialog(completedQuestReminderDialog);
                 }
                 break;
         }

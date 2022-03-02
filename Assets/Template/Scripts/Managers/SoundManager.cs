@@ -7,17 +7,17 @@ public class SoundManager : MonoBehaviour
 {
     [SerializeField] AudioSource speaker;
 
-    public static SoundManager instance;
+    public static SoundManager Instance;
 
     void Awake()
     {
-        if(instance)
+        if(Instance)
         {
             Destroy(gameObject);
         }
         else
         {
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
         }
         if (!speaker)
