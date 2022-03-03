@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc458440f8ba0fe40a4624a78e02ea7b, type: 3}
+  m_Name: 9_1_1_Don'tKnowSince
+  m_EditorClassIdentifier: 
+  text: "I haven't known the villagers since a while, but they seem very worried,
+    and I think that they just want you to be safe.\nNo matter your education, I
+    think they will accept you anyway.\r"
+  speaker: {fileID: 11400000, guid: fd5f31b9ff0a7e04eaa66e14a83adc5b, type: 2}
+  nextBubble: {fileID: 11400000, guid: 5210101dd286d8b4caf8437026129dd3, type: 2}

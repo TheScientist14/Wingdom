@@ -328,7 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a978a3d5d05612541be3c8deecfd5561, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnQuestStateUpdate:
+  onQuestStateUpdate:
     m_PersistentCalls:
       m_Calls: []
   startQuestSpeech: {fileID: 11400000, guid: 31f697ff61026aa429c8d7397bf1379d, type: 2}
@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78321125eb4c8db4fbef78ed800bdc44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnQuestStateUpdate:
+  onQuestStateUpdate:
     m_PersistentCalls:
       m_Calls: []
   acceptQuestSpeech: {fileID: 11400000, guid: 9841eb0fa3c19354a92a24813d7bc54e, type: 2}
@@ -1308,15 +1308,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9143323520209079525, guid: 58c4b4e81118b4243a1ea362d51ad567, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 728.5
+      value: 375.7
       objectReference: {fileID: 0}
     - target: {fileID: 9143323520209079525, guid: 58c4b4e81118b4243a1ea362d51ad567, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 102
+      value: 89
       objectReference: {fileID: 0}
     - target: {fileID: 9143323520209079525, guid: 58c4b4e81118b4243a1ea362d51ad567, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 640
+      value: 74
       objectReference: {fileID: 0}
     - target: {fileID: 9143323520209079525, guid: 58c4b4e81118b4243a1ea362d51ad567, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1680,7 +1680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 559c5290022e10241ba2fc443b01a211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnQuestStateUpdate:
+  onQuestStateUpdate:
     m_PersistentCalls:
       m_Calls: []
   startSpeech: {fileID: 11400000, guid: 70a8061a0b5c2bf49901d2d6e90f5542, type: 2}
@@ -2466,7 +2466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31a0913b145d3ae489fbd24c7b7ec62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnQuestStateUpdate:
+  onQuestStateUpdate:
     m_PersistentCalls:
       m_Calls: []
   acceptQuestSpeech: {fileID: 11400000, guid: a37610eb365b7ce49a6160f18c1799c9, type: 2}
@@ -3114,7 +3114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 840ea93e9e91179499aeec4cb1ce328a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnQuestStateUpdate:
+  onQuestStateUpdate:
     m_PersistentCalls:
       m_Calls: []
   acceptedQuestEndDialog: {fileID: 11400000, guid: a8e7263f6e7a741438541f8daba2b151, type: 2}
