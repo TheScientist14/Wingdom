@@ -12,7 +12,7 @@ public class TimmyBehaviour : MonoBehaviour
     [SerializeField] NavMeshAgent navAgent;
 
     GameObject _player;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +27,10 @@ public class TimmyBehaviour : MonoBehaviour
 
     void Talk()
     {
-        DialogManager.Instance.StartDialog(dialog);
+        if(findTimmyQuest.GetProgress() == Quest.QuestState.Started)
+        {
+            DialogManager.Instance.StartDialog(dialog);
+        }
     }
 
     void FollowPlayer()

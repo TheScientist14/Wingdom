@@ -54,4 +54,9 @@ public class FireQuest : Quest
             DialogManager.Instance.onBubbleShown.RemoveListener(StartQuestOnDialog);
         }
     }
+
+    public override string GetQuestName()
+    {
+        return "Extinguish the fire";
+    }
 }

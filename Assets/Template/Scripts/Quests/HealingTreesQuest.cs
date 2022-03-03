@@ -58,4 +58,9 @@ public class HealingTreesQuest : Quest
             DialogManager.Instance.onBubbleShown.RemoveListener(StartQuestOnDialog);
         }
     }
+
+    public override string GetQuestName()
+    {
+        return "Heal the wounded trees";
+    }
 }

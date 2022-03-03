@@ -39,4 +39,9 @@ public class HermitSubquest : Quest
         SetProgress(QuestState.Completed);
         applesBasket.SetActive(false);
     }
+
+    public override string GetQuestName()
+    {
+        return "Bring apples basket to the hermit";
+    }
 }

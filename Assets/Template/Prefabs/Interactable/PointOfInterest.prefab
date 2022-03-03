@@ -281,6 +281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 3226334091756992157}
   controlHint: {fileID: 16199630772144047}
+  doSelfTrigger: 0
 --- !u!114 &6012221063169722386
 MonoBehaviour:
   m_ObjectHideFlags: 0

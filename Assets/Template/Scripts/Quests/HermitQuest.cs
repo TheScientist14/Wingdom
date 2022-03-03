@@ -33,4 +33,9 @@ public class HermitQuest : Quest
             SetProgress(QuestState.Failed);
         }
     }
+
+    public override string GetQuestName()
+    {
+        return "Convince David the hermit to go back in the village";
+    }
 }

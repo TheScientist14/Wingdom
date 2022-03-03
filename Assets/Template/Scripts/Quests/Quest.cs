@@ -23,4 +23,6 @@ public abstract class Quest : MonoBehaviour
         State = newState;
         onQuestStateUpdate.Invoke();
     }
+
+    public abstract string GetQuestName();
 }

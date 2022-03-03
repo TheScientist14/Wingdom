@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleQuest : Quest
+public class TimmyQuest : Quest
 {
     [SerializeField] BubbleSpeech acceptQuestSpeech;
     [SerializeField] Interactable targetInteractable;
@@ -42,5 +42,10 @@ public class SimpleQuest : Quest
         {
             interactable.SetIsInteractable(false);
         }
+    }
+
+    public override string GetQuestName()
+    {
+        return "Find Timmy";
     }
 }

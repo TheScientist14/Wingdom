@@ -15,11 +15,9 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] float speed = 5;
     [SerializeField] float speedUpSquaredThreshold = 0.25f;
     private Vector2 _movement = Vector2.zero;
-    [SerializeField] float jumpForce = 2;
     [SerializeField] float flatTerrainTolerance = 0.2f;
     [SerializeField] float airTolerance = 0.01f;
     private bool _isGrounded = true;
-    private bool _jump = false;
     private bool _hasSpeedUp = false;
 
     void Awake()
@@ -77,11 +75,6 @@ public class PlayerBehaviour : MonoBehaviour
             _rb.velocity = new Vector3(0, _rb.velocity.y, 0);
         }
         /*rb.velocity = new Vector3(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -10, 10), rb.velocity.z);*/
-        if (_jump)
-        {
-            _rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-            _jump = false;
-        }
     }
 
     Vector3 NormalToRight(Vector3 normal)
@@ -159,15 +152,6 @@ public class PlayerBehaviour : MonoBehaviour
         {
             _hasSpeedUp = true;
             speed *= 2;
-        }
-    }
-
-    void OnJump()
-    {
-        if (_isGrounded)
-        {
-            _jump = true;
-            _isGrounded = false;
         }
     }
 
