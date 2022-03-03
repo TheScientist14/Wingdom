@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class VaniasQuestBehaviour : MonoBehaviour
+public class VaniasBehaviour : MonoBehaviour
 {
     [SerializeField] Interactable interactable;
     [SerializeField] Quest quest;
