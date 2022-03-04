@@ -7,6 +7,8 @@ public class SoundManager : MonoBehaviour
 {
     [SerializeField] AudioSource speaker;
 
+    private int _clipPriority = 0;
+
     public static SoundManager Instance;
 
     void Awake()
@@ -26,13 +28,40 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void PlayClip(AudioClip audioClip)
+    /**
+     * Plays an audio clip
+     * if a sound is already playing, compares priority and stops the current sound if the priority is higher or equal
+     * if priority is lower than 0, override the current sound anyway
+     */
+    public void PlayClip(AudioClip audioClip, int priority = -1)
+    {
+        if (speaker)
+        {
+            if (speaker.isPlaying && priority >= 0)
+            {
+                if(_clipPriority <= priority && _clipPriority >= 0)
+                {
+                    speaker.Stop();
+                    speaker.clip = audioClip;
+                    speaker.Play();
+                    _clipPriority = priority;
+                }
+            }
+            else
+            {
+                speaker.Stop();
+                speaker.clip = audioClip;
+                speaker.Play();
+                _clipPriority = priority;
+            }
+        }
+    }
+
+    public void StopCurrentClip()
     {
         if (speaker)
         {
             speaker.Stop();
-            speaker.clip = audioClip;
-            speaker.Play();
         }
     }
 
@@ -40,7 +69,7 @@ public class SoundManager : MonoBehaviour
     {
         if (speaker)
         {
-            speaker.volume = volume;
+            speaker.outputAudioMixerGroup.audioMixer.SetFloat("Volume", volume);
         }
     }
 }

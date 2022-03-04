@@ -33,6 +33,7 @@ public class MusicManager : MonoBehaviour
             {
                 _prevMusic = Random.Range(0, musicClips.Length);
                 NextMusic();
+                Debug.Log("Starting music");
             }
             else if(musicClips.Length == 1)
             {
@@ -58,6 +59,7 @@ public class MusicManager : MonoBehaviour
         {
             iMusic++;
         }
+        Debug.Log(iMusic);
         speaker.clip = musicClips[iMusic]; ;
         Invoke(nameof(NextMusic), speaker.clip.length);
         _prevMusic = iMusic;
@@ -65,7 +67,7 @@ public class MusicManager : MonoBehaviour
 
     public void SetVolume(int volume)
     {
-        speaker.volume = volume;
+        speaker.outputAudioMixerGroup.audioMixer.SetFloat("Volume", volume);
     }
 
     public void SetPause(bool pause)

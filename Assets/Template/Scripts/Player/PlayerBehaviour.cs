@@ -14,11 +14,27 @@ public class PlayerBehaviour : MonoBehaviour
     // movement
     [SerializeField] float speed = 5;
     [SerializeField] float speedUpSquaredThreshold = 0.25f;
-    private Vector2 _movement = Vector2.zero;
     [SerializeField] float flatTerrainTolerance = 0.2f;
     [SerializeField] float airTolerance = 0.01f;
+    private Vector2 _movement = Vector2.zero;
     private bool _isGrounded = true;
     private bool _hasSpeedUp = false;
+
+    //sound
+    [System.Serializable]
+    struct Footsteps
+    {
+        public AudioClip[] clips;
+        public int layerInt;
+    }
+
+    [SerializeField] AudioSource source;
+    [SerializeField] Footsteps[] footsteps;
+    private int maxLayerInt;
+    private Terrain _terrain;
+    private int _xPosOnTerrainData;
+    private int _zPosOnTerrainData;
+    private float[] _terrainTextureValues;
 
     void Awake()
     {
@@ -30,6 +46,14 @@ public class PlayerBehaviour : MonoBehaviour
     void Start()
     {
         _camera = Camera.main;
+        _terrain = Terrain.activeTerrain;
+        foreach (Footsteps footstep in footsteps)
+        {
+            if(footstep.layerInt > maxLayerInt)
+            {
+                maxLayerInt = footstep.layerInt;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -184,5 +208,49 @@ public class PlayerBehaviour : MonoBehaviour
                 Gizmos.DrawLine(hit.point, hit.point + 2 * NormalToRight(hit.normal));
             }
         }
+    }
+
+    // source : https://johnleonardfrench.com/terrain-footsteps-in-unity-how-to-detect-different-textures/
+
+    public void GetTerrainTexture()
+    {
+        ConvertPosition(transform.position);
+        CheckTexture();
+    }
+    
+    void ConvertPosition(Vector3 playerPosition)
+    {
+        Vector3 terrainPosition = playerPosition - _terrain.transform.position;
+        Vector3 mapPosition = new Vector3(terrainPosition.x / _terrain.terrainData.size.x, 0,
+                                            terrainPosition.z / _terrain.terrainData.size.z);
+        float xCoord = mapPosition.x * _terrain.terrainData.alphamapWidth;
+        float zCoord = mapPosition.z * _terrain.terrainData.alphamapHeight;
+        _xPosOnTerrainData = (int)xCoord;
+        _zPosOnTerrainData = (int)zCoord;
+    }
+    void CheckTexture()
+    {
+        float[,,] aMap = _terrain.terrainData.GetAlphamaps(_xPosOnTerrainData, _zPosOnTerrainData, 1, 1);
+        for(int i = 0; i < maxLayerInt; i++)
+        {
+            _terrainTextureValues[i] = aMap[0, 0, i];
+        }
+    }
+
+    public void PlayTerrainFootstep()
+    {
+        GetTerrainTexture();
+        foreach(Footsteps footstep in footsteps)
+        {
+            if (_terrainTextureValues[footstep.layerInt] > 0)
+            {
+                source.PlayOneShot(GetRandomClip(footstep.clips), _terrainTextureValues[footstep.layerInt]);
+            }
+        }
+    }
+
+    AudioClip GetRandomClip(AudioClip[] clips)
+    {
+        return clips[Random.Range(0, clips.Length)];
     }
 }

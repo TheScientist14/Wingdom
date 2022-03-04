@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class FireBehaviour : MonoBehaviour
 {
     [SerializeField] GameObject fire;
+    [SerializeField] AudioSource speaker;
     public Interactable interactable;
 
     public UnityEvent onFireKilled;
@@ -22,6 +23,7 @@ public class FireBehaviour : MonoBehaviour
         fire.SetActive(false);
         interactable.SetIsInteractable(false);
         onFireKilled.Invoke();
+        speaker.Stop();
     }
 
     public bool IsAlive()
