@@ -6,7 +6,7 @@ public abstract class Quest : MonoBehaviour
 {
     protected QuestState State = QuestState.Unknown;
 
-    [FormerlySerializedAs("OnQuestStateUpdate")] public UnityEvent onQuestStateUpdate;
+    public UnityEvent onQuestStateUpdate;
 
     public enum QuestState
     {
