@@ -57,6 +57,11 @@ public class FireQuest : Quest
 
     public override string GetQuestName()
     {
-        return "Extinguish the fire";
+        return "Call 18";
+    }
+
+    public override string GetQuestDetail()
+    {
+        return "The mayor's house is burning. He asked you to extinguish it by kill fire's spot. You must extinguish three spots.";
     }
 }

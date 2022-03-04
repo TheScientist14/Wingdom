@@ -25,4 +25,5 @@ public abstract class Quest : MonoBehaviour
     }
 
     public abstract string GetQuestName();
+    public abstract string GetQuestDetail();
 }

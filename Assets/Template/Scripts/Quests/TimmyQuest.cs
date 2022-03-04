@@ -46,6 +46,12 @@ public class TimmyQuest : Quest
 
     public override string GetQuestName()
     {
-        return "Find Timmy";
+        return "Timmy is missing !";
+    }
+    
+    public override string GetQuestDetail()
+    {
+        return "A child called Timmy lost himself during his search for wood. The mayor Samug asked you to find him and bring him back to the village." +
+               " You should talk to the villager to see if somebody saw him";
     }
 }

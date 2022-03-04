@@ -61,6 +61,13 @@ public class HealingTreesQuest : Quest
 
     public override string GetQuestName()
     {
-        return "Heal the wounded trees";
+        return "Wounded trees";
+    }
+    
+    public override string GetQuestDetail()
+    {
+        return "The royal delegation injured trees during their stay. Vanias, the deity of the forest want you to heal " +
+               "them thank to a potion she gave you. You must heal four trees." +
+               " Come back to see her when it is done";
     }
 }

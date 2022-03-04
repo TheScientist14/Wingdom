@@ -36,6 +36,12 @@ public class HermitQuest : Quest
 
     public override string GetQuestName()
     {
-        return "Convince David the hermit to go back in the village";
+        return "David the ermit";
+    }
+    
+    public override string GetQuestDetail()
+    {
+        return "The mayor asked you to go and find a ermit call David to convince him to come back live in the village with the others," +
+               " he said that he is near the river. Take the path at the top of the village.";
     }
 }

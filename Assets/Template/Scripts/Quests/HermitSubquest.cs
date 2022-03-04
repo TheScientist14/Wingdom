@@ -42,6 +42,12 @@ public class HermitSubquest : Quest
 
     public override string GetQuestName()
     {
-        return "Bring apples basket to the hermit";
+        return "Where are my apple";
+    }
+    
+    public override string GetQuestDetail()
+    {
+        return "David the ermit agree to come back to the village only if you bring to him some apple. You will be able to find those near the path." +
+               " He is hungry, hurry up !";
     }
 }
