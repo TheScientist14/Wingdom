@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc458440f8ba0fe40a4624a78e02ea7b, type: 3}
   m_Name: EndMayorDialog
   m_EditorClassIdentifier: 
-  text: "OH you found Timmy !\nI don't even know how to thank you, you\u2019ll always
+  text: "Oh you found Timmy !\nI don't even know how to thank you, you\u2019ll always
     be welcomed in our village.\nThank you again my friend."
   speaker: {fileID: 11400000, guid: 0a44a84297d00b84b9bf6d6fc5f9d642, type: 2}
   nextBubble: {fileID: 11400000, guid: a795b5f578b4e8a4da8171b1525430db, type: 2}

@@ -15,4 +15,6 @@ MonoBehaviour:
   text: Tell me more about the village.
   speaker: {fileID: 11400000, guid: fd5f31b9ff0a7e04eaa66e14a83adc5b, type: 2}
   nextBubble: {fileID: 11400000, guid: dba535e19c35af94dad912d71f17f203, type: 2}
-  pnjEmpathyImpacts: []
+  pnjEmpathyImpacts:
+  - pnj: {fileID: 11400000, guid: 0a44a84297d00b84b9bf6d6fc5f9d642, type: 2}
+    empathyImpact: 1
