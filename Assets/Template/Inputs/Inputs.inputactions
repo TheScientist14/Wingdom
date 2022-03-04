@@ -580,6 +580,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "QuestsMenu",
+            "id": "3d5f1423-b785-4871-aab2-aef11517f3a3",
+            "actions": [
+                {
+                    "name": "ShowHide",
+                    "type": "Button",
+                    "id": "13fcb47e-c705-4325-8f82-486966302f17",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2c2af7c2-edb5-4791-a032-47796a820eb8",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "ShowHide",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
