@@ -17,4 +17,4 @@ MonoBehaviour:
   nextBubble: {fileID: 11400000, guid: a689c81d02df0e14e85ddf8f5496b84c, type: 2}
   pnjEmpathyImpacts:
   - pnj: {fileID: 11400000, guid: 96fb37f40f0151d41986cc69a673234f, type: 2}
-    empathyImpact: -1
+    empathyImpact: -2

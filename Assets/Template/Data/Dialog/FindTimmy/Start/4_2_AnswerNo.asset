@@ -15,4 +15,6 @@ MonoBehaviour:
   text: No way.
   speaker: {fileID: 11400000, guid: fd5f31b9ff0a7e04eaa66e14a83adc5b, type: 2}
   nextBubble: {fileID: 11400000, guid: 2ea38d1e597d19248a81d2eef5d63b1e, type: 2}
-  pnjEmpathyImpacts: []
+  pnjEmpathyImpacts:
+  - pnj: {fileID: 0}
+    empathyImpact: -1
