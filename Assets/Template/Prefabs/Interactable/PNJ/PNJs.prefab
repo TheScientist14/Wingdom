@@ -504,11 +504,11 @@ PrefabInstance:
     - target: {fileID: 5172810299370909635, guid: 10dac2f208a87d347b7efe05cb46d683, type: 3}
       propertyPath: applesBasket
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2593438479275539494}
     - target: {fileID: 5206735383970303587, guid: 10dac2f208a87d347b7efe05cb46d683, type: 3}
       propertyPath: successTransform
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 501368451764749743}
     - target: {fileID: 6777560354961065424, guid: 10dac2f208a87d347b7efe05cb46d683, type: 3}
       propertyPath: m_Name
       value: DavidPNJ
